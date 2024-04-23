@@ -46,44 +46,12 @@ hr {
   width: 10%;
 }
 
-.w20 {
-  width: 20%;
-}
-
-.w25 {
-  width: 25%;
-}
-
 .w30 {
   width: 30%;
 }
 
-.w33 {
-  width: 33.33%;
-}
-
-.w40 {
-  width: 40%;
-}
-
 .w50 {
   width: 50%;
-}
-
-.w60 {
-  width: 60%;
-}
-
-.w70 {
-  width: 70%;
-}
-
-.w80 {
-  width: 80%;
-}
-
-.w90 {
-  width: 90%;
 }
 
 .w100 {
@@ -120,11 +88,11 @@ hr {
   align-items: center;
 }
 
-.justify-content-start {
+.justify-start {
   justify-content: flex-start;
 }
 
-.justify-content-end {
+.justify-end {
   justify-content: flex-end;
 }
 
@@ -150,78 +118,6 @@ hr {
   text-align: right;
 }
 
-.pd5 {
-  padding: 5px;
-}
-
-.pd10 {
-  padding: 10px;
-}
-
-.pd15 {
-  padding: 15px;
-}
-
-.pd20 {
-  padding: 20px;
-}
-
-.pd50 {
-  padding: 50px;
-}
-
-.pd-tb20 {
-  padding: 0 20px;
-}
-
-.mg-5 {
-  margin: 5px;
-}
-
-.mg-10 {
-  margin: 10px;
-}
-
-.mg-20 {
-  margin: 20px;
-}
-
-.mg-tp5 {
-  margin-top: 5px;
-}
-
-.mg-tp10 {
-  margin-top: 10px;
-}
-
-.mg-tp20 {
-  margin-top: 20px;
-}
-
-.mg-tp40 {
-  margin-top: 40px;
-}
-
-.mg-bt5 {
-  margin-bottom: 5px;
-}
-
-.mg-bt10 {
-  margin-bottom: 10px;
-}
-
-.mg-bt20 {
-  margin-bottom: 20px;
-}
-
-.mg-bt50 {
-  margin-bottom: 50px;
-}
-
-.mg-lt10 {
-  margin-left: 10px;
-}
-
 .mg-auto {
   margin: 0 auto;
 }
@@ -235,7 +131,11 @@ hr {
 }
 
 .mostrar {
-  display: block;
+  display: flex;
+}
+
+.overhidden {
+  overflow-y: hidden;
 }
 
 .btn {
@@ -266,6 +166,12 @@ hr {
   border: 1px solid #01E88A;
 }
 
+.btn-verde2 {
+  color: #424242;
+  background-color: #ffffff;
+  border: 1px solid #01E88A;
+}
+
 .ir-arriba {
   position: fixed;
   bottom: 5px;
@@ -286,6 +192,86 @@ hr {
   font-weight: bold;
 }
 
+.modal {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.modal .container-modal {
+  width: 586px;
+  background-color: #ffffff;
+  color: #0F0F0F;
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  position: relative;
+  padding: 40px 100px;
+}
+.modal .container-modal .btn-closed {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}
+.modal .container-modal .box-image {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: #01E88A;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 24px;
+}
+.modal .container-modal .box-image img {
+  width: 24px;
+}
+.modal .container-modal .box-content {
+  margin-bottom: 24px;
+}
+.modal .container-modal .box-content h3 {
+  margin-bottom: 16px;
+  line-height: 19px;
+}
+.modal .container-modal .box-footer {
+  display: flex;
+  flex-direction: column;
+}
+.modal .container-modal .box-footer .btn {
+  width: 100%;
+  display: block;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+.alert {
+  width: 100%;
+  height: auto;
+}
+
+.alert-success {
+  color: #155724;
+  background: #d4edda;
+  border: 1px solid #c3e6cb;
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin: 20px 0;
+}
+
+.alert-danger {
+  color: #721c24;
+  background: #f8d7da;
+  border: 1px solid #f5c6cb;
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin: 20px 0;
+}
+
 .navbarSlider {
   position: relative;
 }
@@ -293,14 +279,15 @@ hr {
   color: #ffffff;
   position: absolute;
   width: 100%;
-  z-index: 5;
+  z-index: 100;
 }
 .navbarSlider .header .navbar {
   transition: all 0.5s ease;
-  width: 100%;
+  width: 90%;
   max-width: 1412px;
 }
 .navbarSlider .header .navbar .box-navbar {
+  width: 100%;
   border: 1px solid #ffffff;
   border-top: none;
   display: flex;
@@ -308,7 +295,7 @@ hr {
 }
 .navbarSlider .header .navbar .box-navbar .box-logo {
   transition: all 0.5s ease;
-  width: 81.8px;
+  width: 82px;
   padding: 16px;
   display: flex;
   align-items: flex-end;
@@ -319,7 +306,8 @@ hr {
 .navbarSlider .header .navbar .box-navbar .box-content {
   display: flex;
   flex-direction: column;
-  width: 1332px;
+  width: calc(100% - 82px);
+  max-width: 1332px;
   border-left: 1px solid #ffffff;
 }
 .navbarSlider .header .navbar .box-navbar .box-content .box-content-top .box-empty {
@@ -372,7 +360,7 @@ hr {
   position: fixed;
   top: 10px;
   left: 10px;
-  z-index: 50;
+  z-index: 150;
 }
 .navbarSlider .header .bar {
   display: block;
@@ -380,6 +368,11 @@ hr {
   height: 3px;
   background-color: #fff;
   margin: 5px 0;
+}
+@media (max-width: 769px) {
+  .navbarSlider .header .navbar .navbar-list .nav-link {
+    margin-right: 10px;
+  }
 }
 .navbarSlider .slider {
   width: 100%;
@@ -846,6 +839,129 @@ hr {
   font-size: 56px;
   line-height: 65px;
   margin-bottom: 40px;
+}
+
+.reserva_section {
+  width: 100%;
+  min-height: 100vh;
+  height: 100%;
+  padding-top: 165px;
+  padding-bottom: 50px;
+  background: url("../images/background-header.svg");
+}
+.reserva_section .box-reserva-form {
+  background-color: #181818;
+  color: #ffffff;
+  padding: 60px;
+}
+.reserva_section .box-reserva-form .title {
+  font-size: 40px;
+  line-height: 47px;
+  margin-bottom: 25px;
+}
+.reserva_section .box-reserva-form .form-reserva {
+  display: flex;
+  gap: 25px;
+}
+.reserva_section .box-reserva-form .form-reserva .colum-left {
+  width: 570px;
+  padding: 60px;
+  background-color: #222222;
+  transition: all 0.5s ease;
+}
+.reserva_section .box-reserva-form .form-reserva .colum-left .calendar-container {
+  width: 450px;
+  transition: all 0.2s linear;
+  margin: auto;
+  text-align: center;
+}
+.reserva_section .box-reserva-form .form-reserva .colum-left .calendar-container .calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 36px;
+  padding: 0 10px;
+}
+.reserva_section .box-reserva-form .form-reserva .colum-left .calendar-container .calendar-header .title-month {
+  letter-spacing: 4px;
+}
+.reserva_section .box-reserva-form .form-reserva .colum-left .calendar-container .calendar {
+  width: 100%;
+}
+.reserva_section .box-reserva-form .form-reserva .colum-left .calendar-container .calendar th {
+  color: white;
+}
+.reserva_section .box-reserva-form .form-reserva .colum-left .calendar-container .calendar td {
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 18px;
+  transition: all 0.5s ease;
+  height: 40px;
+}
+.reserva_section .box-reserva-form .form-reserva .colum-left .calendar-container .calendar td:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  color: #0F0F0F;
+}
+.reserva_section .box-reserva-form .form-reserva .colum-left .calendar-container .bg-info {
+  background-color: #f0f0f0;
+  color: #0F0F0F;
+}
+.reserva_section .box-reserva-form .form-reserva .colum-right {
+  gap: 24px;
+  padding-left: 51px;
+  transition: all 0.5s ease;
+  transition-delay: 0.1s;
+}
+.reserva_section .box-reserva-form .form-reserva .colum-right .box-field {
+  width: 47%;
+  transition: all 0.5s ease;
+}
+.reserva_section .box-reserva-form .form-reserva .colum-right .box-desc {
+  width: 100%;
+}
+.reserva_section .box-reserva-form .form-reserva .colum-right .box-desc label {
+  display: block;
+  padding: 10px 0;
+}
+.reserva_section .box-reserva-form .form-reserva input, .reserva_section .box-reserva-form .form-reserva select, .reserva_section .box-reserva-form .form-reserva textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 4px;
+  border-color: #ffffff;
+  outline: none;
+}
+.reserva_section .box-reserva-form .form-reserva textarea {
+  resize: none;
+}
+@media (max-width: 1320px) {
+  .reserva_section .box-reserva-form .form-reserva .colum-left {
+    padding: 20px;
+  }
+  .reserva_section .box-reserva-form .form-reserva .colum-right {
+    padding-left: 20px;
+  }
+}
+@media (max-width: 1190px) {
+  .reserva_section .box-reserva-form .form-reserva .colum-right .box-field {
+    width: 100%;
+  }
+}
+@media (max-width: 1000px) {
+  .reserva_section .box-reserva-form .form-reserva .colum-left {
+    width: 50%;
+  }
+  .reserva_section .box-reserva-form .form-reserva .colum-left .calendar-container {
+    width: 100%;
+    min-width: 300px;
+  }
+}
+@media (max-width: 900px) {
+  .reserva_section .box-reserva-form .form-reserva {
+    flex-wrap: wrap;
+  }
+  .reserva_section .box-reserva-form .form-reserva .colum-left, .reserva_section .box-reserva-form .form-reserva .colum-right {
+    width: 100%;
+  }
 }
 
 .footer_area {

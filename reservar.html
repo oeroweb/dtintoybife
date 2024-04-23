@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="es">
+
+<head>	
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="author" content="Oscar Rojas">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="icon" type="image/svg+xml" href="/assets/icons/logo.svg" />
+	<meta name="description" content="Diseño de página web, Social Media, E-commerce, institucionales, informativas, Responsive Desing, adaptables a todos los dispositivos, Contenido administrable, posicionamiento SEO"/>
+  <meta name="keywords" content="OEROWEB, Diseño y desarrollo de páginas Web, desarrollo de Intranet, de software, posicionamiento SEO, web desing, alojamiento web, Hosting web, páginas web publicitarias, informativas, institucionales, de servicios profesionales, E-commerce, de reserva de servicios, entre otras."/>
+  <meta name="robots" content="Index, Follow">      
+	<title>D' Tinto && Biffe</title>
+	
+	<!-- Librerias CSS -->
+	<link rel="stylesheet" type="text/css" href="assets/css/animate.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/owl.carousel.min.css">
+	
+	<!-- CARROUSEL -->
+	<link rel="stylesheet" type="text/css" href="assets/slick/slick.css">
+  <link rel="stylesheet" type="text/css" href="assets/slick/slick-theme.css">
+	<link rel="stylesheet" href="assets/css/square.min.css" /> 	
+	<link rel="stylesheet" type="text/css" href="assets/css/dtinto.css">
+	
+</head>
+<body>
+  <section class="bg-body"></section>
+  <section class="navbarSlider">
+		<header class="header" id="header">				
+			<nav class="navbar container-wrap items-center justify-center mg-auto" id="navbar">      
+				<div class="box-navbar">
+					<div class="box-logo">
+						<a href="#top">
+							<img src="assets/icons/logo.svg" class="img-logo" alt="Logo D Tinto & Bife">
+						</a>
+					</div>
+					<div class="box-content">
+						<div class="box-content-top container-wrap space-between">
+							<div class="box-empty"></div>
+							<div class="box-redes container-wrap">
+								<a href="">
+									<img src="assets/icons/instagram.svg" class="icon-redes" alt="instagram">
+								</a>
+								<a href="">
+									<img src="assets/icons/facebook.svg" class="icon-redes" alt="facebook">
+								</a>
+								<a href="">
+									<img src="assets/icons/twitter.svg" class="icon-redes" alt="twitter">
+								</a>
+							</div>
+						</div>
+						<div class="navbar-list container-wrap space-between">
+							<div class="container-wrap">
+								<a href="#nosotros" class="nav-link">NOSOTROS</a>     
+								<a href="#lacarta" class="nav-link">LA CARTA</a>
+								<a href="#reservas" class="nav-link">RESERVAS</a>
+							</div>
+							<div class="container-wrap">
+								<a href="#contacto" class="nav-link">CONTACTO</a>
+							</div>
+						</div>
+					</div>					
+				</div>				
+			</nav>			
+			<button id="toggleButton" class="toggle-button">
+				<span class="bar"></span>
+				<span class="bar"></span>
+				<span class="bar"></span>
+			</button>
+		</header>
+	</section>
+
+  <section class="reserva_section">
+    <div class="center">
+      <div class="box-reserva-form" id="calendario">
+        <h2 class="bold title">Reservar Ahora</h2>
+				<div class="alert" id="alert"></div>
+        <form action="" method="post" class="form-reserva" id="formulario">
+          <div class="colum-left">
+            <div class="calendar-container" id="calendar-container">
+							<input type="hidden" id="id">
+							<input type="hidden" id="selectedDate">
+							<input type="hidden" id="selectedDay">
+              <div class="calendar-header" id="calendar-header" >                
+                <a href="#calendario" id="prev-month"><img src="assets/icons/triangle-left.svg" alt="" srcset=""> </a>
+                <h2 class="title-month" id="month-year"></h2>
+                <a href="#calendario" id="next-month"><img src="assets/icons/triangle-right.svg" alt="" srcset=""> </a>
+              </div>
+              <table class="calendar" id="calendar">
+                <thead>
+                  <tr>
+                    <th>Do</th>
+                    <th>Lu</th>
+                    <th>Ma</th>
+                    <th>Mi</th>
+                    <th>Ju</th>
+                    <th>Vi</th>
+                    <th>Sa</th>
+                  </tr>
+                </thead>
+                <tbody class="calendar-body" id="calendar-body">
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="colum-right container-wrap">
+            <div class="box-field">
+              <select name="local" id="local" placeholder="Local" autofocus="autofocus">
+                <option >Local</option>
+                <option value="1">San isidro - Av. Conquiistadores 605</option>
+                <option value="2">Miraflores - Av. Republica de Panamá 6472</option>
+              </select>
+            </div>
+            <div class="box-field">
+              <input type="text" placeholder="Nombre" id="nombre">
+            </div>
+            <div class="box-field">
+              <input type="time" name="hora" id="hora" placeholder="Hora">              
+            </div>
+            <div class="box-field">
+              <input type="email" placeholder="Correo electrónico" id="email">
+            </div>
+            <div class="box-field">
+              <select name="cantidad" placeholder="Local" id="cantidad">
+                <option>Cantidad de personas</option>
+                <option value="1">1 personas</option>
+                <option value="2">2 personas</option>
+                <option value="3">3 personas</option>
+                <option value="4">4 personas</option>
+                <option value="5">5 personas</option>
+                <option value="6">6 personas</option>
+                <option value="7">7 personas</option>
+                <option value="8">8 personas</option>
+                <option value="9">9 personas</option>
+                <option value="10">10 personas</option>
+              </select>
+            </div>
+            <div class="box-field">
+              <input type="tel" placeholder="Número de contacto" id="telefono">
+            </div>
+            <div class="box-desc">
+              <label for="">Comentario adicional</label>
+              <textarea placeholder="Ingresar comentario" rows="6" id="comentario"></textarea>
+            </div>
+            <div class="w100 container-wrap justify-end">
+              <button type="submit" class="btn">Reservar</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer_area">
+		<div class="container-footer">						
+			<div class="item-footer">				
+				<div class=" aniview" data-av-animation="fadeInUp">
+					<h2>Local San Isidro</h2>						
+					<ul class="list-footer">
+						<li><a href=""> Av. Conquiistadores 605, San isidro</a></li>	
+						<li><a href="mailto:detintoybife@gmail.com"> detintoybife@gmail.com</a> </li>					
+						<li><a href=""> 948 250 458</a> </li>												
+					</ul>									
+				</div>
+			</div>				
+			<div class="item-footer">		
+				<div class=" aniview" data-av-animation="fadeInUp">
+					<h2>Local Miraflores</h2>	
+					<div class="container-wrap">										
+						<ul class="list-footer">
+							<li><a href=""> Av. Republica de Panamá 6472, Miraflores</a></li>	
+							<li><a href="mailto:miraflores@dtintoybife.com"> miraflores@dtintoybife.com</a> </li>					
+							<li><a href=""> 975 671 756</a></li>												
+						</ul>						
+					</div>
+				</div>
+			</div>	
+			<div class="item-footer">		
+				<div class=" aniview" data-av-animation="fadeInUp">
+					<h2>Carta y Reserva</h2>	
+					<div class="container-wrap">										
+						<ul class="list-footer">
+							<li><a href=""> Carta principal</a></li>	
+							<li><a href=""> Carta de vinos</a> </li>					
+							<li><a href=""> Reservas</a></li>												
+						</ul>						
+					</div>
+				</div>
+			</div>	
+			<div class="item-footer">		
+				<div class=" aniview" data-av-animation="fadeInUp">
+					<h2>Subscribete</h2>
+					<form action="" class="footer-form">
+						<input type="text" placeholder="Escribe tu correo electrónico">
+						<a type="submit" href="" class="btn btn-verde">Enviar</a>
+					</form>
+					<div class="box-redes">
+						<a href="" class="item-redes"> 
+							<img src="assets/icons/facebook-black.svg" alt="ingresar a facebook">
+						</a>
+						<a href="" class="item-redes"> 
+							<img src="assets/icons/twiter-black.svg" alt="ingresar a twitter">
+						</a>
+						<a href="" class="item-redes"> 
+							<img src="assets/icons/whatsapp.svg" alt="ingresar a whatsapp">
+						</a>
+						<a href="" class="item-redes"> 
+							<img src="assets/icons/instragram-black.svg" alt="ingresar a instagram">
+						</a>
+					</div>
+					
+				</div>
+			</div>	
+		</div>		
+	</footer>
+
+  <div class="modal hidden">
+    <div class="container-modal">
+      <div class="btn-closed bold">X</div>
+      <div class="box-image">
+        <img src="assets/icons/book.svg" alt="Icono de Book">
+      </div>
+      <div class="box-content">
+        <h3>¡Felicitaciones <span class="bold">Fernando!</span> </h3>
+        <p>Tu reserva ha sido confirmada con <span class="bold">éxito. </span> ¡Estamos emocionados de recibirte pronto!</p>
+      </div>
+      <div class="box-footer">
+        <a class="btn btn-verde">Entendido</a>
+        <a class="btn btn-verde2">Editar</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/js/calendar.js"></script>
+	<script>
+		$(document).ready(function() {
+			$('#formulario').submit(function(e) {
+				e.preventDefault();
+
+				const id = $('#id').val();
+				const date = $('#selectedDate').val();
+				const day = $('#selectedDay').val();
+				const local = $('#local').val();
+				const nombre = $('#nombre').val();
+				const hora = $('#hora').val();
+				const email = $('#email').val();
+				const cantidad = $('#cantidad').val();
+				const telefono = $('#telefono').val();
+				const comentario = $('#comentario').val();
+
+				const datos = {
+					id: id,
+					date: date,
+					day: day,
+					local: local,
+					nombre: nombre,
+					hora: hora,
+					email: email,
+					cantidad: cantidad,
+					telefono: telefono,
+					comentario: comentario
+				};
+
+				$.ajax({
+					url: 'admin/models/reserve_add.php',
+					method: 'POST',
+					dataType: 'json',
+					data: datos,
+					success: function(respuesta) {
+						if (respuesta.exito) {
+							$('#alert').html('<p class="alert-success">' + respuesta.mensaje + '</p>');
+							$('#formulario')[0].reset(); // Limpiar el formulario
+						} else {
+							$('#alert').html('<p class="alert-danger">' + respuesta.mensaje + '</p>');
+						}
+					},
+					error: function(error) {
+						console.error('Error:', error);
+						$('#alert').html('<p class="alert-danger">Error al enviar el formulario</p>');
+					}
+				});
+				});
+		});
+
+	</script>
+</body>
+</html>
