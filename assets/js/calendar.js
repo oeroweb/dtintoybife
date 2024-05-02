@@ -8,8 +8,42 @@ console.log('Dia actual:', now);
 
 const monthNames = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
 
-let blockedDays = ['2024-4-15', '2024-4-14'];
-const blockedWeekdays = [2];
+let blockedDays = [];
+let selectedCell = null;
+let blockedWeekdays = [];
+
+const getDayWeek = (callback) => {
+	let day = [];
+	$.get("dayWeek.php", function(data, status){
+		let dayData = JSON.parse(data);
+		day = dayData.data[0]["dia"];
+		callback(day);	
+	});		
+};
+
+getDayWeek(function(day){
+  blockedWeekdays.push(parseInt(day));
+	showCalendar(currentMonth, currentYear);
+});
+
+const getDayBlocked = (callback) => {
+	let daysBlocked = [];
+	$.get("daysBlocked.php", function(data, status){
+		let daysData = JSON.parse(data);
+		daysBlocked = daysData.data.map((fecha) => {
+			const partes = fecha.fecha.match(/(\d{4})-(\d{1,2})-(\d{1,2})/);
+			return `${partes[1]}-${partes[2].replace(/^0/, '')}-${partes[3]}`;
+		});
+		callback(daysBlocked);		
+	});		
+};
+
+
+getDayBlocked(function(fechas){
+	fechas.map(fecha => blockedDays.push(fecha));
+	showCalendar(currentMonth, currentYear);
+});
+
 
 const monthYear = document.getElementById("month-year");
 const calendarBody = document.getElementById("calendar-body");
@@ -20,46 +54,51 @@ function isBlocked(date, month, year) {
 }
 
 function showCalendar(month, year) {
-    const firstDay = new Date(year, month).getDay();
-    calendarBody.innerHTML = "";
+	const firstDay = new Date(year, month).getDay();
+	calendarBody.innerHTML = "";
 
-    monthYear.textContent = `${monthNames[month]}`;
+	monthYear.textContent = `${monthNames[month]}`;
 
-    let date = 1;
-    for (let i = 0; i < 6; i++) {
-      let row = document.createElement("tr");
+	let date = 1;
+	for (let i = 0; i < 6; i++) {
+		let row = document.createElement("tr");
 
-			for (let j = 0; j < 7; j++) {
-				if (i === 0 && j < firstDay) {
-					row.appendChild(document.createElement("td"));
-				} else if (date > daysInMonth(month, year)) {
-						break;
+		for (let j = 0; j < 7; j++) {
+			if (i === 0 && j < firstDay) {
+				row.appendChild(document.createElement("td"));
+			} else if (date > daysInMonth(month, year)) {
+					break;
+			} else {				
+				let cell = document.createElement("td");
+				let currentDate = new Date(year, month, date);
+				cell.textContent = date;
+				if (isBlocked(date, month, year) || blockedWeekdays.includes(currentDate.getDay())) {
+					cell.classList.add("blocked");
 				} else {
-					let cell = document.createElement("td");
-					let currentDate = new Date(year, month, date);
-					cell.textContent = date;
-					if (isBlocked(date, month, year) || blockedWeekdays.includes(currentDate.getDay())) {
-						cell.classList.add("blocked");
-					} else {
-						(function(currentDate, currentMonth, currentYear) {
-							cell.addEventListener("click", function() {
-								console.log(`Seleccionaste el día ${currentDate} de ${monthNames[currentMonth]}, ${currentYear}`);
-								document.getElementById("selectedDate").value = `${currentYear}-${currentMonth + 1}-${currentDate}`
-								document.getElementById("selectedDay").value = `${currentDate}`
-							});
-						})(date, month, year);
-					}
-
-					if (date === now.getDate() && year === now.getFullYear() && month === now.getMonth()) {
-							cell.classList.add("bg-info");
-					}
-					
-					row.appendChild(cell);
-					date++;
+					(function(currentDate, currentMonth, currentYear) {
+						cell.addEventListener("click", function() {
+							if(selectedCell !== null){
+								selectedCell.classList.remove("seleccionada");
+							}
+							selectedCell = cell;
+							selectedCell.classList.add("seleccionada");
+							console.log(`Seleccionaste el día ${currentDate} de ${monthNames[currentMonth]}, ${currentYear}`);
+							document.getElementById("selectedDate").value = `${currentYear}-${currentMonth + 1}-${currentDate}`
+							document.getElementById("selectedDay").value = `${currentDate}`
+						});
+					})(date, month, year);
 				}
+
+				if (date === now.getDate() && year === now.getFullYear() && month === now.getMonth()) {
+						cell.classList.add("bg-info");
+				}
+				
+				row.appendChild(cell);
+				date++;
 			}
-			calendarBody.appendChild(row);
-    }
+		}
+		calendarBody.appendChild(row);
+	}
 }
 
 function daysInMonth(iMonth, iYear) {
@@ -86,4 +125,4 @@ document.getElementById("next-month").addEventListener("click", () => {
     showCalendar(currentMonth, currentYear);
 });
 
-showCalendar(currentMonth, currentYear);
+// showCalendar(currentMonth, currentYear);

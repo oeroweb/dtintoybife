@@ -13,18 +13,23 @@
 		$cantidad = $_POST['cantidad'];
 		$telefono = $_POST['telefono'];
 		$comentario = $_POST['comentario'];
-	
-		$sql="INSERT INTO tabla_reservas (id, sede, nombre, email, telefono, dia, fecha, hora, cantidad, comentario, estado) VALUES (null, '$local', '$nombre', '$email', '$telefono', '$day', '$date', '$hora', '$cantidad', $comentario', 1);";
-				
-		$resultado = mysqli_query($db,$sql);
-					
-		if($resultado){
-			$_SESSION['completado'] = "El registro se creo de forma exitosa";	
-			header("Location: ../../../../reservar.php");
-		} else{
-			$_SESSION['fallo'] = "Error al eliminar el registro; por favor volver a intentar";		
-			header("Location: ../../../../reservar.php");
-		}
+
+		$sql2 = "SELECT email, fecha FROM tabla_reservas where email='$email' and fecha='$date'";
+		$resultado2 = mysqli_query($db,$sql2);
+
+		if($resultado2){
+			echo 'reserva_duplicada';
+		} else {
+			$sql="INSERT INTO tabla_reservas (id, sede, nombre, email, telefono, dia, fecha, hora, cantidad, comentario, estado) VALUES (null, $local, '$nombre', '$email', '$telefono', '$day', '$date', '$hora', $cantidad, '$comentario', 1);";
+			
+			$resultado = mysqli_query($db,$sql);
+			
+			if(!mysqli_affected_rows($db)>0){
+				echo 'Error';
+				die('Reserva fallida'. mysqli_query($db));
+			} 
+			echo 'reserva_añadida';
+		}	
 	}
 	
 ?>

@@ -32,7 +32,6 @@ $(function(){
 $(document).ready(function(){	
 	//alert('cargado');
 	$('.ir-arriba').click(function(){
-		// body...
 		$('body, html').animate({
 			scrollTop: '0px'
 		}, 2000);

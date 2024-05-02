@@ -2,90 +2,140 @@
 	require_once ('redireccion.php'); 
 	require_once ('helpers.php'); 
 ?>
-<!doctype html>
-<html lang="es">
+<?php  include '../layout/header_admin.php' ?>	
 
-<head>	
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="author" content="Oscar Rojas">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">	 
-	<title>DTinto & Bife | Admin</title>
-	<link rel="icon" href="../assets/img/logo.ico" type="image/ico">	
-	<!-- main css -->	
-	<link rel="shortcut icon" href="../assets/img/logo.ico">
-  <link rel="stylesheet" type="text/css" href="../assets/css/oerostyles.css" />
-  <link rel="stylesheet" type="text/css" href="../assets/css/css/all.min.css">	  
-	<!-- SCRIPT -->	
-	<script src="../assets/js/jquery.js"></script> 
-</head>
-<body>	
+<div class="portal-main">
+  <div class="box-header container-wrap space-between items-center">
+		<div class="container-wrap items-center">
+			<img src="../assets/icons/logo.svg" class="img-logo" alt="Logo D'Tinto & Bife">	
+			<h2 class="titulo">D'Tinto & Bife - Gestión de Datos  <br> <span class="name-user"><?= $_SESSION['session_dtinto']  ?></span></h2>
+		</div>	
+    <a href="cerrar.php" class="btn" title="Cerrar Sessión">Salir</a>
+  </div>
+	<div class="main_back container-wrap">
 		<?php include 'aside.php' ?>
 
-		<section class="w90" id="blogger">
-				
+		<section class="w90 container-portal" id="portal">				
 			<div class="center">
-				<div class="botones container-wrap space-between">
-					<a href="../index.php" class="btn btn-azul"> <i class="fas fa-arrow-left"></i> Ir a la página principal</a>
-					<div class="">
-						<!-- <a href="models/listar_ideas.php" class="btn btn-azul"><i class="fas fa-download"></i> Listar Ideas </a>						 -->
-						<a href="models/listar_ideas.php" class="btn btn-azul"><i class="far fa-file-excel"></i> Listar Ideas </a>						
+				<div class="box-title">
+					<h3>Configuraciones Generales</h3>
+					<hr>
+				</div>			
+				<?php if(isset($_SESSION['completado'])): ?>
+					<div class="alert-success" id="alert">
+						<?=$_SESSION['completado']?>					
+						<img src="../assets/icons/times.svg" alt=""> 
 					</div>
-				</div>
-					<?php if(isset($_SESSION['completado'])): ?>
-						<div class="alerta-exito2" id="alert">
-							<?=$_SESSION['completado']?>					
-							<i class='fas fa-times'></i>  
+				<?php elseif(isset($_SESSION['fallo'])): ?>
+					<div class="alert-danger" id="alert">
+						<?=$_SESSION['fallo']?>
+						<img src="../assets/icons/times.svg" alt=""> 					
+					</div>
+				<?php endif; ?>
+				<div class="box-container">				
+					<div class="box-week container-wrap align-items-center mg-bt20">
+						<?php 
+							$datos = obtenerdatos($db, 'tabla_descansoSemanal');
+							if(!empty($datos) && mysqli_num_rows($datos) >= 1):
+								while($dato = mysqli_fetch_assoc($datos)):							
+								$dia_seleccionado = $dato['dia'];							
+						?>				
+							<h2 class="title">Dia de descanso Semanal</h2>
+							<p class="w100 text">Selecciona otro dia para modificar el dia de descanso semanal.</p>
+							<form class="w100 container-wrap" action="models/week_update.php" method="post">
+								<div class="box-field">
+									<input type="radio" name="semana" value="0" <?php if($dia_seleccionado == 0){ echo 'checked';} ?> />
+    							<label for="domingo">Domingo</label>
+								</div>
+								<div class="box-field">
+									<input type="radio" name="semana" value="1" <?php if($dia_seleccionado == 1){ echo 'checked';} ?> />
+    							<label for="lunes">Lunes</label>
+								</div>
+								<div class="box-field">
+									<input type="radio" name="semana" value="2" <?php if($dia_seleccionado == 2){ echo 'checked';} ?> />
+    							<label for="martes">Martes</label>
+								</div>
+								<div class="box-field">
+									<input type="radio" name="semana" value="3" <?php if($dia_seleccionado == 3){ echo 'checked';} ?> />
+    							<label for="Miercoles">Miercoles</label>
+								</div>
+								<div class="box-field">
+									<input type="radio" name="semana" value="4" <?php if($dia_seleccionado == 4){ echo 'checked';} ?>/>
+    							<label for="Jueves">Jueves</label>
+								</div>
+								<div class="box-field">
+									<input type="radio" name="semana" value="5" <?php if($dia_seleccionado == 5){ echo 'checked';} ?> />
+    							<label for="Viernes">Viernes</label>
+								</div>
+								<div class="box-field mg-bt20">
+									<input type="radio" name="semana" value="6" <?php if($dia_seleccionado == 6){ echo 'checked';} ?> />
+    							<label for="Sabado">Sabado</label>
+								</div>
+								<div class="w100">
+									<button type="submit" class="btn btn-verde">Cambiar Dia</button>	
+								</div>
+							</form>						
+						<?php endwhile;						
+						endif; ?>			
+					</div>
+					<div class="box-blockedDays">
+						<h2 class="title">Dias Bloqueados</h2>
+						<?php if(isset($_SESSION['completado2'])): ?>
+							<div class="alert-success" id="alert">
+								<?=$_SESSION['completado2']?>					
+								<img src="../assets/icons/times.svg" alt=""> 
+							</div>
+						<?php elseif(isset($_SESSION['fallo2'])): ?>
+							<div class="alert-danger" id="alert">
+								<?=$_SESSION['fallo2']?>
+								<img src="../assets/icons/times.svg" alt=""> 					
+							</div>
+						<?php endif; ?>
+						<div class="box-container-days">
+							<div class="colum-left">
+							<p class="w100 text">Listado de días bloqueados</p>	
+								<?php 
+									$datos = obtenerdatos($db, 'tabla_horasbloqueadas');
+									if(!empty($datos) && mysqli_num_rows($datos) >= 1):
+										while($dato = mysqli_fetch_assoc($datos)):																	
+								?>
+									<div class="box-day w100">
+										<p><?=$dato['fecha']?></p>
+										<a href="models/dayblocked_delete.php?id=<?=$dato['id']?>" class="btn2 " title="Borrar fecha"> 
+											<img src="../assets/icons/trash.svg" alt="Icono tachito">
+										</a>
+									</div>
+								<?php endwhile;						
+									endif; ?>		
+							</div>
+							<div class="colum-right">
+								<p class="w100 mg-bt20">Ingresa una fecha para bloquear las reservas</p>						
+								<form class="w100 container-wrap" action="models/dayblocked_add.php" method="post">
+									<div class="box-field w60 mg-bt20">
+										<label for="domingo">Fecha</label>
+										<input type="date" name="fecha" required/>
+									</div>
+									<!-- <div class="box-field w60 mg-bt20">
+										<label for="domingo">Hora de Inicio</label>
+										<input type="time" name="horainicio" />
+									</div>
+									<div class="box-field w60 mg-bt20">
+										<label for="domingo">Hora de Termino</label>
+										<input type="time" name="horafin" />
+									</div>								 -->
+									<div class="w100">
+										<button type="submit" class="btn btn-verde">Bloquear Dia</button>	
+									</div>
+								</form>					
+							</div>
 						</div>
-					<?php elseif(isset($_SESSION['fallo'])): ?>
-						<div class="alerta-error2" id="alert">
-							<?=$_SESSION['fallo']?>						
-							<i class='fas fa-times'></i>
-						</div>
-					<?php endif; ?> 
-				<div class="box pd20">				
-					<?php 
-						$ideas = todosIdeasAll($db);
-						if(!empty($ideas) && mysqli_num_rows($ideas) >= 1):
-							while($idea = mysqli_fetch_assoc($ideas)):		
-					?>				
-						<div class="box-item container-wrap align-items-center mg-bt20">
-							<div class="box-datos w70">
-								<p class=" pd10">#<?=$idea['id'].'  - '?><?=$idea['fechacreacion']?></p>
-								<p class="titulo_area pd10"><?=$idea['area']?></p>
-								<p class="parrafo_idea pd10"><?=$idea['idea']?></p>
-								<p class="correo pd10"><?=$idea['email']?></p>
-							</div>									
-							<div class="w10 pd20">
-								<?php if($idea['estado'] == 0) :?>
-								<p class="estado ">Pendiente</p>
-								<?php else : ?>
-									<p class="estado ">Publicado</p>
-								<?php endif; ?>	
-							</div>
-							<div class="w20 pd20">
-
-								<?php if($idea['estado'] == 0) :?>
-									<p class="estado ">Publicar</p>					
-									<a href="models/publicar_idea.php?id=<?=$idea['id']?>" class="btn btn-plomo" title="Publicar"><i class="fas fa-check"></i></a>
-								<?php else : ?>
-									<p class="estado ">Quitar</p>
-									<a href="models/retirar_idea.php?id=<?=$idea['id']?>" class="btn btn-azul" title="Quitar Publicación"><i class="fas fa-times"></i></a>
-									<?php endif; ?>	
-
-								<a href="models/idea_delete.php?id=<?=$idea['id']?>" class=" btn btn-rojo" title="Borrar"> <i class="fas fa-trash-alt"></i></a>
-							</div>
-						</div>					
-					<?php endwhile;
-						else: ?>
-							<div class="container-wrap align-items-center mg-bt20">
-								<h2 class="sinpost">No hay reservaciones para mostrar</h2>
-							</div>
-					<?php endif; ?>			
+					</div>			
 				</div>				
 			</div>
 			<!-- center -->
 			<?php borrarErrores(); ?>	
 		</section>
 	</div>
-<script src="../assets/js/dtintoquery.js"></script>
+</div>
+
+<!-- <script src="../assets/js/dtintoquery.js"></script> -->
