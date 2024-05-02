@@ -1,73 +1,7 @@
-<!doctype html>
-<html lang="es">
-
-<head>	
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="author" content="Oscar Rojas">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<link rel="icon" type="image/svg+xml" href="/assets/icons/logo.svg" />
-	<meta name="description" content="Diseño de página web, Social Media, E-commerce, institucionales, informativas, Responsive Desing, adaptables a todos los dispositivos, Contenido administrable, posicionamiento SEO"/>
-  <meta name="keywords" content="OEROWEB, Diseño y desarrollo de páginas Web, desarrollo de Intranet, de software, posicionamiento SEO, web desing, alojamiento web, Hosting web, páginas web publicitarias, informativas, institucionales, de servicios profesionales, E-commerce, de reserva de servicios, entre otras."/>
-  <meta name="robots" content="Index, Follow">      
-	<title>D' Tinto && Biffe</title>
-	
-	<!-- Librerias CSS -->
-	<link rel="stylesheet" type="text/css" href="assets/css/animate.css">
-	<link rel="stylesheet" type="text/css" href="assets/css/owl.carousel.min.css">
-	
-	<!-- CARROUSEL -->
-	<link rel="stylesheet" type="text/css" href="assets/slick/slick.css">
-  <link rel="stylesheet" type="text/css" href="assets/slick/slick-theme.css">
-	<link rel="stylesheet" href="assets/css/square.min.css" /> 	
-	<link rel="stylesheet" type="text/css" href="assets/css/dtinto.css">
-	
-</head>
-<body>
+	<?php  include "layout/header.php" ?>
 
 	<section class="navbarSlider">
-		<header class="header" id="header">				
-			<nav class="navbar container-wrap items-center justify-center mg-auto" id="navbar">      
-				<div class="box-navbar">
-					<div class="box-logo">
-						<a href="#top">
-							<img src="assets/icons/logo.svg" class="img-logo" alt="Logo D Tinto & Bife">
-						</a>
-					</div>
-					<div class="box-content">
-						<div class="box-content-top container-wrap space-between">
-							<div class="box-empty"></div>
-							<div class="box-redes container-wrap">
-								<a href="">
-									<img src="assets/icons/instagram.svg" class="icon-redes" alt="instagram">
-								</a>
-								<a href="">
-									<img src="assets/icons/facebook.svg" class="icon-redes" alt="facebook">
-								</a>
-								<a href="">
-									<img src="assets/icons/twitter.svg" class="icon-redes" alt="twitter">
-								</a>
-							</div>
-						</div>
-						<div class="navbar-list container-wrap space-between">
-							<div class="container-wrap">
-								<a href="#nosotros" class="nav-link">NOSOTROS</a>     
-								<a href="#lacarta" class="nav-link">LA CARTA</a>
-								<a href="#reservas" class="nav-link">RESERVAS</a>
-							</div>
-							<div class="container-wrap">
-								<a href="#contacto" class="nav-link">CONTACTO</a>
-							</div>
-						</div>
-					</div>					
-				</div>				
-			</nav>			
-			<button id="toggleButton" class="toggle-button">
-				<span class="bar"></span>
-				<span class="bar"></span>
-				<span class="bar"></span>
-			</button>
-		</header>
+	<?php  include "layout/navbar.php" ?>
 		<div class="slider example-1">	
 			<div style="display: flex; align-items: center; justify-content: center; height: 100vh;">
 				<img src="assets/images/background-header.svg" class="w100" alt="D' Tinto & Bife">
@@ -80,7 +14,7 @@
 							GENERALMENTE ES LA CARNE</h2>
 					</div>
 					<div class="aniview" data-av-animation="fadeInUp">			
-						<a href="#" class="btn ">Reservar 
+						<a href="reservar.php" class="btn ">Reservar 
 							<img src="assets/icons/book.svg">
 						</a>
 					</div>
@@ -289,7 +223,7 @@
 								<h2 class="title">Reserva ahora en nuestro local de Miraflores o San Isidro</h2>
 							</div>
 							<p class="text">Para garantizar que cada visita sea especial, te ofrecemos la posibilidad de realizar reservas anticipadas y asegurarte el lugar perfecto para disfrutar de nuestras increíbles propuestas.</p>
-							<a href="" class="btn">Reservar
+							<a href="reservar.php" class="btn">Reservar
 								<img src="assets/icons/book.svg">
 							</a>
 
@@ -304,87 +238,16 @@
 		<div class="center">
 			<div class="box-container-text aniview" data-av-animation="fadeInUp">
 				<h2 class="bold text">Reserva ahora en uno de nuestros dos locales</h2>
-				<a href="" class="btn">Reservar
+				<a href="reservar.php" class="btn">Reservar
 					<img src="assets/icons/book.svg">
 				</a>
 			</div>
 		</div>
 	</section>
 	
-	<footer class="footer_area">
-		<div class="container-footer">						
-			<div class="item-footer">				
-				<div class=" aniview" data-av-animation="fadeInUp">
-					<h2>Local San Isidro</h2>						
-					<ul class="list-footer">
-						<li><a href=""> Av. Conquiistadores 605, San isidro</a></li>	
-						<li><a href="mailto:detintoybife@gmail.com"> detintoybife@gmail.com</a> </li>					
-						<li><a href=""> 948 250 458</a> </li>												
-					</ul>									
-				</div>
-			</div>				
-			<div class="item-footer">		
-				<div class=" aniview" data-av-animation="fadeInUp">
-					<h2>Local Miraflores</h2>	
-					<div class="container-wrap">										
-						<ul class="list-footer">
-							<li><a href=""> Av. Republica de Panamá 6472, Miraflores</a></li>	
-							<li><a href="mailto:miraflores@dtintoybife.com"> miraflores@dtintoybife.com</a> </li>					
-							<li><a href=""> 975 671 756</a></li>												
-						</ul>						
-					</div>
-				</div>
-			</div>	
-			<div class="item-footer">		
-				<div class=" aniview" data-av-animation="fadeInUp">
-					<h2>Carta y Reserva</h2>	
-					<div class="container-wrap">										
-						<ul class="list-footer">
-							<li><a href=""> Carta principal</a></li>	
-							<li><a href=""> Carta de vinos</a> </li>					
-							<li><a href=""> Reservas</a></li>												
-						</ul>						
-					</div>
-				</div>
-			</div>	
-			<div class="item-footer">		
-				<div class=" aniview" data-av-animation="fadeInUp">
-					<h2>Subscribete</h2>
-					<form action="" class="footer-form">
-						<input type="text" placeholder="Escribe tu correo electrónico">
-						<a type="submit" href="" class="btn btn-verde">Enviar</a>
-					</form>
-					<div class="box-redes">
-						<a href="" class="item-redes"> 
-							<img src="assets/icons/facebook-black.svg" alt="ingresar a facebook">
-						</a>
-						<a href="" class="item-redes"> 
-							<img src="assets/icons/twiter-black.svg" alt="ingresar a twitter">
-						</a>
-						<a href="" class="item-redes"> 
-							<img src="assets/icons/whatsapp.svg" alt="ingresar a whatsapp">
-						</a>
-						<a href="" class="item-redes"> 
-							<img src="assets/icons/instragram-black.svg" alt="ingresar a instagram">
-						</a>
-					</div>
-					
-				</div>
-			</div>	
-		</div>		
-	</footer>	
+	<?php  include "layout/footer.php" ?>
 
-	<!-- <span class="ir-arriba" title="Subir"> A</span>	 -->
 	<!--================End Footer Area =================-->
-	
-
-
-	<script src="assets/js/jquery.js"></script>
-	<script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
-
-	<script src="assets/js/owl.carousel.min.js"></script>
-	<script src="assets/js/dtintoquery.js"></script>
-	<script src="assets/js/jquery.aniview.js"></script>
 	<script src="assets/js/square.min.js"></script>
 	<script type="text/javascript">
 		$('.example-1').square1({caption: 'none',

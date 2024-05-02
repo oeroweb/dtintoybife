@@ -1,14 +1,6 @@
 <?php 
 	include('cn/db.php');
 
-	function mostrarError($errores, $campo){
-		$alerta = '';
-		if(isset($errores[$campo]) && !empty($campo)){
-			$alerta = "<div class='alerta alerta-error'>" .$errores[$campo]."</div>";			
-		}
-		return $alerta;
-	}
-
 	function borrarErrores(){
 		$borrado = false;		
 
@@ -16,17 +8,25 @@
 			$_SESSION['completado'] = null;
 			$borrado = true;
 		}
+		if(isset($_SESSION['completado2'])){
+			$_SESSION['completado2'] = null;
+			$borrado = true;
+		}
 
 		if(isset($_SESSION['fallo'])){
 			$_SESSION['fallo'] = null;
+			$borrado = true;
+		}	
+		if(isset($_SESSION['fallo2'])){
+			$_SESSION['fallo2'] = null;
 			$borrado = true;
 		}	
 
 		return $borrado;
 	}
 	
-	function obtenerdatos($conexion, $tabla, $id){
-		$sql = "SELECT * FROM $tabla where id = $id";
+	function obtenerdatos($conexion, $tabla){
+		$sql = "SELECT * FROM $tabla";
 
 		$datos = mysqli_query($conexion, $sql);
 		if($datos && mysqli_num_rows($datos) >=1){
@@ -65,7 +65,7 @@
 
 	// obtener todos
 	function selectalldatos($conexion, $tabla){
-		$sql = "SELECT * FROM $tabla";
+		$sql = "SELECT * FROM $tabla ORDER by fecha DESC";
 
 		$datos = mysqli_query($conexion, $sql);
 		if($datos && mysqli_num_rows($datos) >=1){
@@ -75,14 +75,16 @@
 		}
 		return $resultado;
 	}
+	
+	// obtener todos
+	function selectFinishReserve($conexion, $tabla){
+		$sql = "SELECT * FROM $tabla ORDER by id DESC limit 1";
 
-
-	function todos_Webmail($conexion){		
-		$sql = "SELECT * FROM oedb_webmail WHERE estado = 1 ORDER by id LIMIT 6 ";
-
-		$webmail = mysqli_query($conexion, $sql);
-		if($webmail && mysqli_num_rows($webmail) >=1){
-			$resultado = $webmail;
+		$datos = mysqli_query($conexion, $sql);
+		if($datos && mysqli_num_rows($datos) >=1){
+			$resultado = $datos;
+		}else{
+			$resultado = '';
 		}
 		return $resultado;
 	}

@@ -1,0 +1,24 @@
+$.ajax({
+					url: 'admin/models/reserve_add.php',
+					method: 'POST',
+					dataType: 'json',
+					data: datos,
+					success: function(respuesta){
+						console.log('rpa..', respuesta)
+						if(respuesta == 1 ){												
+							$("#alert").html('<p class="alert-success">Exito</p>');
+							$("#formulario")[0].reset();
+							$("#alert").fadeOut(10000, function(){
+								$(this).html("");
+								$(this).fadeIn(5000);
+							});							
+						}else{							
+							$("#alert").html('<p class="alert-danger">No paso</p>');
+							$("#alert").fadeOut(10000, function(){
+								$(this).html("");
+								$(this).fadeIn(5000);
+							});		
+						}
+					}
+					
+				});
