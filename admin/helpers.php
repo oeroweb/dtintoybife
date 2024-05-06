@@ -25,8 +25,8 @@
 		return $borrado;
 	}
 	
-	function obtenerdatos($conexion, $tabla){
-		$sql = "SELECT * FROM $tabla";
+	function obtenerdatos($conexion, $tabla, $sede){
+		$sql = "SELECT * FROM $tabla where sede = $sede";
 
 		$datos = mysqli_query($conexion, $sql);
 		if($datos && mysqli_num_rows($datos) >=1){
@@ -64,8 +64,8 @@
 	}
 
 	// obtener todos
-	function selectalldatos($conexion, $tabla){
-		$sql = "SELECT * FROM $tabla ORDER by fecha DESC";
+	function selectalldatos($conexion, $tabla, $sede, $campo){
+		$sql = "SELECT * FROM $tabla where sede=$sede ORDER by $campo DESC";
 
 		$datos = mysqli_query($conexion, $sql);
 		if($datos && mysqli_num_rows($datos) >=1){

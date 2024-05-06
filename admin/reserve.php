@@ -31,72 +31,147 @@
 						<?=$_SESSION['fallo']?>
 						<img src="../assets/icons/times.svg" alt=""> 				
 					</div>
-				<?php endif; ?>
+				<?php endif; ?>			
 				
-				<div class="box-container">				
-					<?php 
-						$datos = selectalldatos($db, 'tabla_reservas');
-						if(!empty($datos) && mysqli_num_rows($datos) >= 1):
-							while($dato = mysqli_fetch_assoc($datos)):		
-					?>
-						<div class="box-items container-wrap items-center mg-bt10 
-							<?=$dato['estado'] == 2 ? "success" :"" ?>
-							<?=$dato['estado'] == 3 ? "cancel" :"" ?>
-						">
-							<div class="item">								
-								<h2 class="w100 bold"><?=$dato['sede'] == 1 ? "San isidro" : "Miraflores" ?></h2>
-								<p>Cliente: <span class="bold"> <?=$dato['nombre']?></span></p>
-								<p>Email: <span class="bold"> <?=$dato['email']?></span></p>
-								<p>Teléfono: <span class="bold"> <?=$dato['telefono']?></span></p>
-							</div>									
-							<div class="item">
-								<p>Fecha: <span class="bold"> <?=$dato['fecha']?></span></p>
-								<p>Hora: <span class="bold"> <?=$dato['hora']?> hrs.</span></p>
-								<p>Cant. Personas: <span class="bold"> <?=$dato['cantidad']?></span></p>
-							</div>
-							<div class="item">
-								<span>Comentario:</span>
-								<p class="comentario"> <?=($dato['comentario']) ? $dato['comentario'] : "<span class='colorLight'>Sin comentarios</span>" ?></p>
-							</div>
-							<div class="item al-ct">
-								<span>Estado:</span>
-								<?php if($dato['estado'] == 1):?>
-									<p class="estado">Pendiente</p>
-								<?php elseif($dato['estado'] == 2):?>
-									<p class="estado">Confirmado</p>
-								<?php else : ?>
-									<p class="estado">Cancelado</p>
-								<?php endif; ?>	
-							</div>
-							<div class="item container-wrap justify-end">
-								<?php if($dato['estado'] == 1):?>
-									<a href="models/confirmar-reserva.php?id=<?=$dato['id']?>" class="btn2 " title="Confirmar reserva"> 
-										<img src="../assets/icons/check.svg" alt="Icono Check">
-									</a>
-									<a href="models/cancelar-reserva.php?id=<?=$dato['id']?>" class="btn2 " title="Cancelar reserva"> 
-										<img src="../assets/icons/cancel.svg" alt="Icono Check">
-									</a>								
-								<?php elseif ($dato['estado'] == 2):?>																	
-									<a href="models/cancelar-reserva.php?id=<?=$dato['id']?>" class="btn2 " title="Cancelar reserva"> 
-										<img src="../assets/icons/cancel.svg" alt="Icono Check">
-									</a>
-								<?php else : ?>
-									<div></div>
-								<?php endif; ?>	
-							</div>
-						</div>					
-					<?php endwhile;
-						else: ?>
-							<div class="container-wrap align-items-center mg-bt20">
-								<h2 class="sinpost">No hay reservaciones para mostrar</h2>
-							</div>
-					<?php endif; ?>			
-				</div>				
+				<div class="box-content-admin">
+					<div class="tabs-content-admin">
+						<input type="radio" name="grupos" id="sanisidro" checked>
+            <input type="radio" name="grupos" id="miraflores">
+						<div class="tabs-nav">
+							<label for="sanisidro" class="sanisidro">Sede San Isidro</label>
+							<label for="miraflores" class="miraflores">Sede Miraflores</label>
+						</div>
+						<section>
+							<div class="content content-1">															
+								<div class="box-container">				
+									<?php 
+										$datos = selectalldatos($db, 'tabla_reservas', 1,'fecha');
+										if(!empty($datos) && mysqli_num_rows($datos) >= 1):
+											while($dato = mysqli_fetch_assoc($datos)):		
+									?>
+										<div class="box-items container-wrap items-center mg-bt10 
+											<?=$dato['estado'] == 2 ? "success" :"" ?>
+											<?=$dato['estado'] == 3 ? "cancel" :"" ?>
+										">
+											<div class="item">								
+												<p>Cliente: <span class="bold"> <?=$dato['nombre']?></span></p>
+												<p>Email: <span class="bold"> <?=$dato['email']?></span></p>
+												<p>Teléfono: <span class="bold"> <?=$dato['telefono']?></span></p>
+											</div>									
+											<div class="item">
+												<p>Fecha: <span class="bold"> <?=$dato['fecha']?></span></p>
+												<p>Hora: <span class="bold"> <?=$dato['hora']?> hrs.</span></p>
+												<p>Cant. Personas: <span class="bold"> <?=$dato['cantidad']?></span></p>
+											</div>
+											<div class="item">
+												<span>Comentario:</span>
+												<p class="comentario"> <?=($dato['comentario']) ? $dato['comentario'] : "<span class='colorLight'>Sin comentarios</span>" ?></p>
+											</div>
+											<div class="item al-ct">
+												<span>Estado:</span>
+												<?php if($dato['estado'] == 1):?>
+													<p class="estado">Pendiente</p>
+												<?php elseif($dato['estado'] == 2):?>
+													<p class="estado">Confirmado</p>
+												<?php else : ?>
+													<p class="estado">Cancelado</p>
+												<?php endif; ?>	
+											</div>
+											<div class="item container-wrap justify-end">
+												<?php if($dato['estado'] == 1):?>
+													<a href="models/confirmar-reserva.php?id=<?=$dato['id']?>" class="btn2 " title="Confirmar reserva"> 
+														<img src="../assets/icons/check.svg" alt="Icono Check">
+													</a>
+													<a href="models/cancelar-reserva.php?id=<?=$dato['id']?>" class="btn2 " title="Cancelar reserva"> 
+														<img src="../assets/icons/cancel.svg" alt="Icono Check">
+													</a>								
+												<?php elseif ($dato['estado'] == 2):?>																	
+													<a href="models/cancelar-reserva.php?id=<?=$dato['id']?>" class="btn2 " title="Cancelar reserva"> 
+														<img src="../assets/icons/cancel.svg" alt="Icono Check">
+													</a>
+												<?php else : ?>
+													<div></div>
+												<?php endif; ?>	
+											</div>
+										</div>					
+									<?php endwhile;
+										else: ?>
+											<div class="container-wrap align-items-center mg-bt20">
+												<h2 class="sinpost">No hay reservaciones para mostrar</h2>
+											</div>
+									<?php endif; ?>			
+								</div>					
+							</div>							
+							
+							<div class="content content-2">															
+								<div class="box-container">				
+									<?php 
+										$datos = selectalldatos($db, 'tabla_reservas', 2,'fecha');
+										if(!empty($datos) && mysqli_num_rows($datos) >= 1):
+											while($dato = mysqli_fetch_assoc($datos)):		
+									?>
+										<div class="box-items container-wrap items-center mg-bt10 
+											<?=$dato['estado'] == 2 ? "success" :"" ?>
+											<?=$dato['estado'] == 3 ? "cancel" :"" ?>
+										">
+											<div class="item">								
+												<p>Cliente: <span class="bold"> <?=$dato['nombre']?></span></p>
+												<p>Email: <span class="bold"> <?=$dato['email']?></span></p>
+												<p>Teléfono: <span class="bold"> <?=$dato['telefono']?></span></p>
+											</div>									
+											<div class="item">
+												<p>Fecha: <span class="bold"> <?=$dato['fecha']?></span></p>
+												<p>Hora: <span class="bold"> <?=$dato['hora']?> hrs.</span></p>
+												<p>Cant. Personas: <span class="bold"> <?=$dato['cantidad']?></span></p>
+											</div>
+											<div class="item">
+												<span>Comentario:</span>
+												<p class="comentario"> <?=($dato['comentario']) ? $dato['comentario'] : "<span class='colorLight'>Sin comentarios</span>" ?></p>
+											</div>
+											<div class="item al-ct">
+												<span>Estado:</span>
+												<?php if($dato['estado'] == 1):?>
+													<p class="estado">Pendiente</p>
+												<?php elseif($dato['estado'] == 2):?>
+													<p class="estado">Confirmado</p>
+												<?php else : ?>
+													<p class="estado">Cancelado</p>
+												<?php endif; ?>	
+											</div>
+											<div class="item container-wrap justify-end">
+												<?php if($dato['estado'] == 1):?>
+													<a href="models/confirmar-reserva.php?id=<?=$dato['id']?>" class="btn2 " title="Confirmar reserva"> 
+														<img src="../assets/icons/check.svg" alt="Icono Check">
+													</a>
+													<a href="models/cancelar-reserva.php?id=<?=$dato['id']?>" class="btn2 " title="Cancelar reserva"> 
+														<img src="../assets/icons/cancel.svg" alt="Icono Check">
+													</a>								
+												<?php elseif ($dato['estado'] == 2):?>																	
+													<a href="models/cancelar-reserva.php?id=<?=$dato['id']?>" class="btn2 " title="Cancelar reserva"> 
+														<img src="../assets/icons/cancel.svg" alt="Icono Check">
+													</a>
+												<?php else : ?>
+													<div></div>
+												<?php endif; ?>	
+											</div>
+										</div>					
+									<?php endwhile;
+										else: ?>
+											<div class="container-wrap align-items-center mg-bt20">
+												<h2 class="sinpost">No hay reservaciones para mostrar</h2>
+											</div>
+									<?php endif; ?>			
+								</div>						
+							</div>							
+						</section>
+					</div>
+				</div>	
 			</div>
-			<!-- center -->
 			<?php borrarErrores(); ?>	
 		</section>
 	</div>
 </div>
 
-<script src="../assets/js/dtintoquery.js"></script>
+<?php  include '../layout/footer_admin.php' ?>
+
+

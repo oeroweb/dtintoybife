@@ -6,7 +6,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="author" content="Oscar Rojas">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<link rel="icon" type="image/svg+xml" href="/assets/icons/logo.svg" />
+	<link rel="icon" type="image/svg+xml" href="assets/icons/logo.svg" />
 	<meta name="description" content=""/>
   <meta name="keywords" content=""/>
   <meta name="robots" content="Index, Follow">      

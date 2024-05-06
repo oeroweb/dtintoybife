@@ -1,34 +1,3 @@
-$(function(){
-
-	var ancho = $(window).width(),
-		navbar = $('#navbar'),
-		btnMenu = $('#btn-menu'),
-		icono = $('#btn-menu .icono');
-
-	if(ancho < 1000){
-		navbar.hide();
-	}
-
-	btnMenu.on('click', function(){
-		navbar.slideToggle();
-		icono.toggleClass('fa-bars');
-		icono.toggleClass('fa-times');
-	});
-
-	$(window).on('resize', function(){
-		if($(this).width() > 1000){
-			navbar.show();
-			icono.addClass('fa-times');
-			icono.removeClass('fa-bars');
-		}else{
-			navbar.hide();
-			icono.addClass('fa-bars');
-			icono.removeClass('fa-times');
-		}
-	});
-
-});
-
 $(document).ready(function(){	
 	//alert('cargado');
 	$('.ir-arriba').click(function(){
@@ -43,6 +12,10 @@ $(document).ready(function(){
 		} else{
 			$('.ir-arriba').slideUp(1900); 
 		}
+	});
+
+	$("#alert").click(function(){
+		$(this).addClass("hidden");
 	});
 
 	// CERRAR SUBMENU
@@ -102,50 +75,6 @@ $(document).ready(function () {
 	}
 });	
 
-$(document).ready(function(){
-	
-	// pagina inicio
-	$("#emprendedor").click(function(e){
-		e.preventDefault();
-		var nombreplan = "Emprendedor";
-		localStorage.setItem("plan", nombreplan);		
-	});
-
-	$("#digitalPlus").click(function(e){
-		e.preventDefault();
-		var nombreplan = "DigitalPlus";
-		localStorage.setItem("plan", nombreplan);
-	});
-	
-	$("#DigitalPremium").click(function(e){
-		e.preventDefault();
-		var nombreplan = "DigitalPremium";
-		localStorage.setItem("plan", nombreplan);		
-	});
-
-	if(localStorage.getItem('plan') == "Emprendedor"){
-		$("#emprendedor2").attr('checked', true);
-	}else if(localStorage.getItem('plan') == "DigitalPlus"){
-		$("#dPlus").attr('checked', true);
-	}else if(localStorage.getItem('plan') == "DigitalPremium"){
-		$("#dPremium").attr('checked', true);
-	}	
-
-	$('.list').click(function(){
-		const value = $(this).attr('data-filter');
-		if(value == 'all'){
-			$('.portafolio_box').show('1000');
-		}else{
-			$('.portafolio_box').not('.'+value).hide('1000');
-			$('.portafolio_box').filter('.'+value).show('1000');
-		}		
-	});
-
-	$('.list').click(function(){
-		$(this).addClass('active').siblings().removeClass('active');
-	});
-
-});
 
 /**
  * Enlaces

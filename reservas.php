@@ -53,6 +53,7 @@
       <div class="box-reserva-form" id="calendario">
         <h2 class="bold title">Reservar Ahora</h2>
 				<div class="alert" id="alert"></div>
+				<div class="alert" id="resultado"></div>
         <form action="" method="POST" class="form-reserva" id="formulario">
           <div class="colum-left">
             <div class="calendar-container" id="calendar-container">
@@ -84,9 +85,8 @@
           <div class="colum-right container-wrap">
             <div class="box-field">
               <select name="local" id="local" placeholder="Local" autofocus="autofocus" required>
-                <option >Local</option>
-                <option value="1">San isidro - Av. Conquiistadores 605</option>
                 <option value="2">Miraflores - Av. Republica de Panamá 6472</option>
+                <option value="1">San isidro - Av. Conquiistadores 605</option>
               </select>
             </div>
             <div class="box-field">
@@ -176,19 +176,19 @@
 				<div class="box-icons">
 					<div class="items-icon">
 						<img src="assets/icons/calendar.svg" alt="Icono de Calendario">
-						<p id="fecha-modal"><?=$dato['fecha']?></p>
+						<p><?=$dato['fecha']?></p>
 					</div>
 					<div class="items-icon">
 						<img src="assets/icons/user.svg" alt="Icono de Persona">
-						<p id="cantidad-modal"><?=$dato['cantidad']?> personas</p>
+						<p><?=$dato['cantidad']?> personas</p>
 					</div>
 					<div class="items-icon">
 						<img src="assets/icons/clock.svg" alt="Icono de Reloj">
-						<p id="hora-modal"><?=$dato['hora'] >= "13:00" ? $dato['hora']." p.m.": $dato['hora']." a.m."?></p>
+						<p><?=$dato['hora'] >= "13:00" ? $dato['hora']." p.m.": $dato['hora']." a.m."?></p>
 					</div>
 					<div class="items-icon">
 						<img src="assets/icons/map.svg" alt="Icono de Ubicación">
-						<p id="sede-modal">Sede, <?=$dato['sede'] == 1 ? "San isidro" : "Miraflores" ?></p>
+						<p>Sede, <?=$dato['sede'] == 1 ? "San isidro" : "Miraflores" ?></p>
 					</div>
 				</div>
 				<div class="box-footer">
@@ -247,9 +247,8 @@
     </div>
   </div>
 
-  <script src="assets/js/calendar.js"></script>
+  <script src="assets/js/calendar-mr.js"></script>
 	<script>
-		let datosForm = [];
 		function limpiarModal(){
 			$("#formulario")[0].reset();
 		}
@@ -298,7 +297,7 @@
 				const cantidad = $('#cantidad').val();
 				const telefono = $('#telefono').val();
 				const comentario = $('#comentario').val();
-				
+
 				if([date, day].includes('')){
 					$('#alert').html('<p class="alert-danger">Debe seleccionar una fecha</p>');
 					$("#alert").fadeOut(4000, function(){
@@ -327,7 +326,7 @@
 					telefono: telefono,
 					comentario: comentario
 				};
-				datosForm.push(datos);
+
 				$.post('admin/models/reserve_add.php', datos, function(response){
 					console.log(response);
 					// if("reserva_duplicada"){
@@ -336,19 +335,20 @@
 					// } else {
 						// console.log('else');
 						// }					
-						// $("#formulario")[0].reset();							
 					mostrarModal();
+												
 					subirScreen();
-				});
-				console.log(datosForm);
+				})
 			});
+
 			$("#local").change(function(){
 				const selectedValue = $(this).val();
-				if(selectedValue =='2'){
-					location.href ="reservas.php";
-				}				
-			});				
-		});		
+				if(selectedValue =='1'){
+					location.href ="reservar.php";
+				}		
+			})
+
+		});
 
 	</script>
 </body>

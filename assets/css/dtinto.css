@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap");
 * {
   box-sizing: border-box;
@@ -88,6 +89,10 @@ textarea {
 
 .minheight100 {
   min-height: 100vh;
+}
+
+.flex-col {
+  flex-direction: column;
 }
 
 .container-wrap {
@@ -1082,23 +1087,79 @@ textarea {
   cursor: not-allowed;
 }
 .reserva_section .box-reserva-form .form-reserva .colum-left .calendar-container .blocked::before {
-  content: "Fecha bloqueada";
+  content: "¡Hoy estamos llenos!, comunícate con nosotros por WhatsApp para añadirte a la lista de espera.";
+  position: absolute;
+  top: 0px;
+  background-color: transparent;
+  padding: 8px 8px 16px 12px;
+  display: none;
+  font-size: 14px;
+  line-height: 20px;
+  border-radius: 4px;
+  min-width: 248px;
+  width: auto;
+  text-align: left;
+}
+.reserva_section .box-reserva-form .form-reserva .colum-left .calendar-container .blocked::after {
+  content: "";
+  width: 8px;
+  height: 8px;
+  transform: rotate(138deg);
+  background: transparent;
+  position: absolute;
+  top: -5px;
+}
+.reserva_section .box-reserva-form .form-reserva .colum-left .calendar-container .blocked:hover::before {
+  display: block;
+  top: -90px;
+  transition: all 0.5s ease;
+  background-color: #01E88A;
+}
+.reserva_section .box-reserva-form .form-reserva .colum-left .calendar-container .blocked:hover::after {
+  display: block;
+  top: -10px;
+  transition: all 0.5s ease;
+  left: 10px;
+  background-color: #01E88A;
+}
+.reserva_section .box-reserva-form .form-reserva .colum-left .calendar-container .closed {
+  color: #686868;
+  cursor: not-allowed;
+}
+.reserva_section .box-reserva-form .form-reserva .colum-left .calendar-container .closed::before {
+  content: "¡Hoy no atendemos!";
   transition: all 0.5s ease;
   display: none;
   position: absolute;
   top: 0px;
-  left: 2px;
-  background-color: #ffffff;
-  padding: 6px;
-  font-size: 10px;
+  background-color: #01E88A;
+  padding: 8px 8px 16px 12px;
+  font-size: 14px;
+  line-height: 20px;
   border-radius: 4px;
-  min-width: 80px;
-  width: auto;
+  width: 120px;
+  z-index: 2;
 }
-.reserva_section .box-reserva-form .form-reserva .colum-left .calendar-container .blocked:hover::before {
+.reserva_section .box-reserva-form .form-reserva .colum-left .calendar-container .closed::after {
+  content: "";
+  width: 8px;
+  height: 8px;
+  transform: rotate(138deg);
+  background: transparent;
+  position: absolute;
+  top: -5px;
+}
+.reserva_section .box-reserva-form .form-reserva .colum-left .calendar-container .closed:hover::before {
   display: block;
-  top: -24px;
+  top: -50px;
   transition: all 0.5s ease;
+}
+.reserva_section .box-reserva-form .form-reserva .colum-left .calendar-container .closed:hover::after {
+  display: block;
+  top: -10px;
+  transition: all 0.5s ease;
+  left: 10px;
+  background-color: #01E88A;
 }
 .reserva_section .box-reserva-form .form-reserva .colum-right {
   gap: 24px;
@@ -1242,6 +1303,9 @@ textarea {
   width: 160px;
   margin-bottom: 30px;
 }
+.login .img-loading {
+  width: 40px;
+}
 .login .box-login {
   flex-direction: column;
 }
@@ -1294,6 +1358,18 @@ textarea {
 .login .box-formulario-login .form .inputBox .none {
   display: none;
 }
+@media (max-width: 900px) {
+  .login .w30 {
+    width: 50%;
+    transition: all 0.5s ease;
+  }
+}
+@media (max-width: 600px) {
+  .login .w30 {
+    width: 90%;
+    transition: all 0.5s ease;
+  }
+}
 
 .portal-main {
   height: 100vh;
@@ -1331,6 +1407,14 @@ textarea {
   transition: all 0.5s ease;
   padding-left: 20px;
 }
+.portal-main .main_back .aside .active {
+  background-color: #ffffff;
+  color: #181818;
+  border-left: 8px solid #FFC668;
+  transition: all 0.5s ease;
+  padding-left: 20px;
+  position: relative;
+}
 .portal-main .main_back .container-portal {
   padding: 40px 0;
 }
@@ -1339,64 +1423,122 @@ textarea {
   font-size: 30px;
   color: #FFC668;
 }
-.portal-main .main_back .container-portal .box-container .box-items {
+.portal-main .main_back .container-portal .box-content-admin .tabs-content-admin {
+  width: 100%;
+  background-color: #F0EEEE;
+  padding: 25px 30px 30px;
+  border-radius: 10px;
+}
+.portal-main .main_back .container-portal .box-content-admin .tabs-content-admin .tabs-nav {
+  width: 100%;
+  margin: auto;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  position: relative;
+  border-radius: 4px;
+}
+.portal-main .main_back .container-portal .box-content-admin .tabs-content-admin .tabs-nav label {
+  display: block;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  color: #181818;
+  background-color: #ffffff;
+  border: 1px solid #181818;
+  transition: all 0.2s linear;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.portal-main .main_back .container-portal .box-content-admin .tabs-content-admin input[type=radio] {
+  display: none;
+}
+.portal-main .main_back .container-portal .box-content-admin .tabs-content-admin #sanisidro:checked ~ .tabs-nav label.sanisidro,
+.portal-main .main_back .container-portal .box-content-admin .tabs-content-admin #miraflores:checked ~ .tabs-nav label.miraflores {
+  color: #ffffff;
+  transition: all 0.2s linear;
+  background-color: #181818;
+}
+.portal-main .main_back .container-portal .box-content-admin .tabs-content-admin section .content {
+  display: none;
+}
+.portal-main .main_back .container-portal .box-content-admin .tabs-content-admin #sanisidro:checked ~ section .content-1,
+.portal-main .main_back .container-portal .box-content-admin .tabs-content-admin #miraflores:checked ~ section .content-2 {
+  display: block;
+}
+.portal-main .main_back .container-portal .box-content-admin .tabs-content-admin section .content .box-container {
+  margin-top: 20px;
+  background-color: #ffffff;
+  border-radius: 4px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+  padding: 20px;
+}
+.portal-main .main_back .container-portal .box-content-admin .tabs-content-admin section .content .box-container input[type=radio] {
+  display: block;
+}
+.portal-main .main_back .container-portal .box-content-admin .tabs-content-admin section .content .box-container .box-items {
   display: grid;
   grid-template-columns: 20% 15% 35% 15% 15%;
   background-color: #F0EEEE;
   padding: 10px 16px;
   border-radius: 8px;
 }
-.portal-main .main_back .container-portal .box-container .box-items .item {
+.portal-main .main_back .container-portal .box-content-admin .tabs-content-admin section .content .box-container .box-items .item {
   padding: 0 6px;
 }
-.portal-main .main_back .container-portal .box-container .box-items .item p {
+.portal-main .main_back .container-portal .box-content-admin .tabs-content-admin section .content .box-container .box-items .item p {
   line-height: 24px;
 }
-.portal-main .main_back .container-portal .box-container .box-items .item .comentario {
+.portal-main .main_back .container-portal .box-content-admin .tabs-content-admin section .content .box-container .box-items .item .comentario {
   text-align: justify;
 }
-.portal-main .main_back .container-portal .box-container .box-items.success {
+.portal-main .main_back .container-portal .box-content-admin .tabs-content-admin section .content .box-container .box-items.success {
   background-color: #d4edda;
 }
-.portal-main .main_back .container-portal .box-container .box-items.cancel {
+.portal-main .main_back .container-portal .box-content-admin .tabs-content-admin section .content .box-container .box-items.cancel {
   color: #ccc;
 }
-.portal-main .main_back .container-portal .box-container .box-week {
+.portal-main .main_back .container-portal .box-content-admin .tabs-content-admin section .content .box-container .box-week {
   background-color: #F0EEEE;
   border-radius: 8px;
   padding: 50px;
 }
-.portal-main .main_back .container-portal .box-container .box-week .title {
+.portal-main .main_back .container-portal .box-content-admin .tabs-content-admin section .content .box-container .box-week .title {
   margin-bottom: 14px;
   font-size: 18px;
 }
-.portal-main .main_back .container-portal .box-container .box-week p {
+.portal-main .main_back .container-portal .box-content-admin .tabs-content-admin section .content .box-container .box-week p {
   margin-bottom: 40px;
 }
-.portal-main .main_back .container-portal .box-container .box-week .box-field {
+.portal-main .main_back .container-portal .box-content-admin .tabs-content-admin section .content .box-container .box-week .box-field {
   text-align: center;
   margin-left: 20px;
 }
-.portal-main .main_back .container-portal .box-container .box-blockedDays {
+.portal-main .main_back .container-portal .box-content-admin .tabs-content-admin section .content .box-container .box-blockedDays {
   background-color: #F0EEEE;
   border-radius: 8px;
   padding: 50px;
 }
-.portal-main .main_back .container-portal .box-container .box-blockedDays .title {
+.portal-main .main_back .container-portal .box-content-admin .tabs-content-admin section .content .box-container .box-blockedDays .title {
   margin-bottom: 14px;
   font-size: 18px;
 }
-.portal-main .main_back .container-portal .box-container .box-blockedDays .text {
+.portal-main .main_back .container-portal .box-content-admin .tabs-content-admin section .content .box-container .box-blockedDays .text {
   margin-bottom: 40px;
 }
-.portal-main .main_back .container-portal .box-container .box-blockedDays .box-container-days {
+.portal-main .main_back .container-portal .box-content-admin .tabs-content-admin section .content .box-container .box-blockedDays .box-container-days {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
 }
-.portal-main .main_back .container-portal .box-container .box-blockedDays .box-container-days .colum-left {
+.portal-main .main_back .container-portal .box-content-admin .tabs-content-admin section .content .box-container .box-blockedDays .box-container-days .colum-left {
   padding-right: 30px;
 }
-.portal-main .main_back .container-portal .box-container .box-blockedDays .box-container-days .box-day {
+.portal-main .main_back .container-portal .box-content-admin .tabs-content-admin section .content .box-container .box-blockedDays .box-container-days .box-day {
   display: flex;
   align-items: center;
   justify-content: space-between;
