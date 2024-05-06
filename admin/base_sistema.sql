@@ -32,7 +32,8 @@ INSERT INTO tabla_estados (id, nombre) values
 (null, "Cancelado");
 
 CREATE TABLE tabla_descansoSemanal(
-	id int(2) not null auto_increment,	
+	id int(2) not null auto_increment,
+	sede int(2) not null,
 	dia int(2) not null,
 	CONSTRAINT pk_semanal PRIMARY KEY(id)
 )ENGINE=InnoDb;
@@ -41,6 +42,7 @@ INSERT INTO `tabla_descansosemanal` (`id`, `dia`) VALUES (NULL, 2)
 
 CREATE TABLE tabla_horasBloqueadas(
 	id int(5) not null auto_increment,
+	sede int(2) not null,
 	fecha DATE not null,
 	horaInicio TIME null,
 	horaFin TIME null,

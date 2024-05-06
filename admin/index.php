@@ -29,9 +29,9 @@
 					</form>
 					<?php else: ?>
 						<?php 					
-							echo "<h2 class='container-wrap items-center'>Bienvenido " .$_SESSION['session_dtinto'] ."</h2>";						
-							echo "<img src='../assets/img/loading.gif' class='w30 mg-auto' >";				
-							header("Refresh:3; url=portal.php");
+							echo "<div class='container-wrap flex-col items-center'><h2 class='mg-bt20'>Bienvenido " .$_SESSION['session_dtinto'] ."</h2>";
+							echo "<img src='../assets/images/loading.gif' class='img-loading mg-auto' ></div>";				
+							header("Refresh:1; url=portal.php");
 						?>				
 					<?php endif; ?>
 				</div>

@@ -6,7 +6,7 @@ define('DB_PASS','');
 define('DB_NAME','dtinto');
 
 $db= mysqli_connect(DB_HOST, DB_USER,DB_PASS,DB_NAME);
-  $sql = "SELECT * FROM tabla_horasBloqueadas where sede = 1;";
+  $sql = "SELECT * FROM tabla_horasBloqueadas where sede = 2;";
 
   $result = mysqli_query($db, $sql);
 

@@ -4,11 +4,10 @@
 		session_start();
 		require_once	('../cn/db.php');
 		
-		$id = 1;				
-		$day = $_POST['semana'];
+		$sede = $_POST['sede'];				
+		$day = $_POST['semana'];		
 		
-		
-		$sql= "UPDATE tabla_descansoSemanal SET dia='$day' WHERE id = $id;";
+		$sql= "UPDATE tabla_descansoSemanal SET dia='$day' WHERE sede = $sede;";
 
 		$resultado = mysqli_query($db,$sql);
 			

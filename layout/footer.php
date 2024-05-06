@@ -59,23 +59,21 @@
 			</div>
 		</div>	
 	</div>		
-</footer>	
- 
+</footer>	 
 
-	<!-- <span class="ir-arriba" title="Subir"><i class="fa fa-chevron-up"></i></span>	 -->
-	<!--================End Footer Area =================-->
-	<script type="text/javascript">
-	 	const currentLocation = location.href;
-    const menuItem = document.querySelectorAll(".nav-link");
-    const menuLenght = menuItem.length
-    for (let i = 0; i < menuLenght; i++) {
-			if (menuItem[i].href === currentLocation) {
-					// menuItem[i].className = "active"
-					menuItem[i].classList.add("active");
-			}
-		}	
-	</script>
-
+<!-- <span class="ir-arriba" title="Subir"><i class="fa fa-chevron-up"></i></span>	 -->
+<!--================End Footer Area =================-->
+<script type="text/javascript">
+	const currentLocation = location.href;
+	const menuItem = document.querySelectorAll(".nav-link");
+	const menuLenght = menuItem.length
+	for (let i = 0; i < menuLenght; i++) {
+		if (menuItem[i].href === currentLocation) {
+				// menuItem[i].className = "active"
+				menuItem[i].classList.add("active");
+		}
+	}	
+</script>
 
 <script src="assets/js/jquery.js"></script>
 <script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
