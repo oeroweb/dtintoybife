@@ -17,8 +17,6 @@
 	<link rel="stylesheet" type="text/css" href="assets/css/owl.carousel.min.css">
 	
 	<!-- CARROUSEL -->
-	<link rel="stylesheet" type="text/css" href="assets/slick/slick.css">
-  <link rel="stylesheet" type="text/css" href="assets/slick/slick-theme.css">
 	<link rel="stylesheet" href="assets/css/square.min.css" /> 	
 	<link rel="stylesheet" type="text/css" href="assets/css/dtinto.css">
 	

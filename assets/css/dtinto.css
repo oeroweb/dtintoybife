@@ -562,7 +562,7 @@ textarea {
   font-family: "Roboto Condensed";
   display: flex;
   flex-direction: column;
-  background: url("../images/background-header.svg");
+  background: url("../images/background-header.webp");
   justify-content: center;
   align-items: center;
 }
@@ -1095,7 +1095,7 @@ textarea {
 .reservas_banner {
   color: #ffffff;
   padding: 80px 0;
-  background: url("../images/bookings-banner.svg");
+  background: url("../images/bookings-banner.webp");
 }
 .reservas_banner .box-container-text {
   width: 635px;
@@ -1117,7 +1117,7 @@ textarea {
   height: 100%;
   padding-top: 165px;
   padding-bottom: 50px;
-  background: url("../images/background-header.svg");
+  background: url("../images/background-header.webp");
 }
 .reserva_section .box-reserva-form {
   background-color: #181818;

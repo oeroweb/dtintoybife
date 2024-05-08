@@ -3,7 +3,6 @@
 	<section class="navbarSlider">
 	<?php  include "layout/navbar.php" ?>
 		<div class="slider ">	
-			<!-- <img src="assets/images/background-header.svg" class="w100" alt="D' Tinto & Bife"> -->
 			<div class="box-texto">
 				<div class="aniview" data-av-animation="fadeInDown">
 					<div class="box-text-header">
@@ -23,10 +22,10 @@
 
 	<section class="nosotros_area" id="nosotros">
 		<div class="box-left aniview" data-av-animation="fadeInLeft">
-			<img src="assets/images/left-header.svg" alt="" >
+			<img src="assets/images/left-header.webp" alt="" >
 		</div>
 		<div class="box-right aniview" data-av-animation="fadeInRight">
-			<img src="assets/images/right-header.svg" alt="" >
+			<img src="assets/images/right-header.webp" alt="" >
 		</div>
 		<div class="box-center">
 			<div class="card-nosotros aniview" data-av-animation="fadeInUp">
@@ -71,8 +70,8 @@
 			<div class="box-images-nosotros">
 				<div class="aniview" data-av-animation="fadeInRight">
 					<div class="box-images">
-						<img src="assets/images/nosotros.svg" style="width:508px" alt="Local y mesas" >
-						<img src="assets/images/nosotros-dtinto.svg" class="img-float" alt="Representantes" >
+						<img src="assets/images/nosotros.webp" style="width:508px" alt="Local y mesas" >
+						<img src="assets/images/nosotros-dtinto.webp" class="img-float" alt="Representantes" >
 					</div>
 				</div>
 			</div>				
@@ -87,7 +86,7 @@
 					<div class="aniview" data-av-animation="fadeInUp">
 						<p class="text">D' Tinto & Bife, un sueño que tuve hace muchos años y que hoy gracias a todo nuestro equipo, clientes y amigos. Logrando consolidarnos entre los mejores del rubro. Un restaurante es como abrir las puertas siempre procuras que se lleven lo mejor de uno, es por ello que siempre estamos pendientes a cada mínimo detalle.</p>
 						<div class="box-image">
-							<img src="assets/images/luis_bohl.svg" alt="Luis Bohl Fundador">
+							<img src="assets/images/luis_bohl.webp" alt="Luis Bohl Fundador">
 						</div>
 						<p class="text-footer">Luis Bohl <span class="bold"> <br>Fundador y Gerente general</span> </p>
 					</div>
@@ -96,7 +95,7 @@
 					<div class="aniview" data-av-animation="fadeInUp">
 						<p class="text">Tuve la oportunidad de crecer en el mundo de los restaurantes, de chico lo veía como un trabajo que requería mucho tiempo y dedicación, con el paso de los años me di dando cuenta que no hay nada más gratificante que ver a los clientes disfrutar grandes momentos gracias al trabajo y esfuerzo que uno hace, simplemente no tiene precio.</p>
 						<div class="box-image">
-							<img src="assets/images/jerek_bohl.svg" alt="Jerek Bolh Gerente de operaciones">
+							<img src="assets/images/jerek_bohl.webp" alt="Jerek Bolh Gerente de operaciones">
 						</div>
 						<p class="text-footer">Jerek Bohl <span class="bold"> <br>Gerente de operaciones</span> </p>
 					</div>
@@ -105,7 +104,7 @@
 					<div class=" aniview" data-av-animation="fadeInUp">
 						<p class="text">Conocí a Cucho y a Jerek hace muchos años, como cliente del restaurante. Luego de algunos años visitándolos con recurrencia pude formar parte del equipo que hoy me enorgullece. Siempre es un placer recibir a nuestros clientes y amigos.</p>
 						<div class="box-image">
-							<img src="assets/images/luis_soto.svg" alt="Luis Soto">
+							<img src="assets/images/luis_soto.webp" alt="Luis Soto">
 						</div>
 						<p class="text-footer">Luis Soto <span class="bold"> <br>Socio</span> </p>
 					</div>
@@ -128,7 +127,7 @@
 					<div class="aniview" data-av-animation="fadeInLeft">
 						<div class="colum-left">
 							<img src="assets/images/letter-left.svg" class="w50" alt="">
-							<img src="assets/images/letter-right.svg" class="w50" alt="">
+							<img src="assets/images/letter-right.webp" class="w50" alt="">
 						</div>
 					</div>
 				</div>
@@ -139,7 +138,7 @@
 							<h2 class="title">Conoce nuestra variedad de platos</h2>
 						</div>
 						<p class="text">Somos especialistas en carnes y vinos, aquí podrás conocer nuestra propuesta gastronómica así como también la variedad de cortes americanos y argentinos que ofrecemos.</p>
-						<a href="" class="btn">Ver carta
+						<a href="assets/doc/Carta_2023.pdg" class="btn">Ver carta
 							<img src="assets/icons/book.svg">
 						</a>
 					</div>
@@ -153,7 +152,7 @@
 			<div class="w100 container-wrap justify-center">				
 				<div class="box-carta">						
 					<div class="box-img-social ">
-						<img src="assets/images/entradas.jpg" alt="Entradas">
+						<img src="assets/images/entradas.webp" alt="Entradas">
 						<div class="box-hover">
 							<h2>Entradas</h2>							
 							<a href="">
@@ -164,7 +163,7 @@
 				</div>
 				<div class="box-carta ">						
 					<div class="box-img-social ">
-						<img src="assets/images/parrillas.jpg" alt="Parrillas">
+						<img src="assets/images/parrillas.webp" alt="Parrillas">
 						<div class="box-hover">						
 							<h2>Parrillas</h2>	
 							<a href="">
@@ -187,10 +186,10 @@
 				</div>
 				<div class="box-carta ">						
 					<div class="box-img-social ">
-					<img src="assets/images/vinos.jpg" alt="">
+					<img src="assets/images/vinos.webp" alt="">
 						<div class="box-hover">
 							<h2>Vinos</h2>
-							<a href="">
+							<a href="assets/doc/CARTA_BEBIDAS-MIRAFLORES.pdf">
 								<img src="assets/icons/eyes.svg" alt=""> 
 							</a>
 						</div>
@@ -212,7 +211,7 @@
 			<div class="box-container-reservas container-wrap items-center">
 				<div class="img-reserva">
 					<div class="aniview" data-av-animation="fadeInLeft">
-						<img src="assets/images/bookings.svg" alt="Restaurante">
+						<img src="assets/images/bookings.webp" alt="Restaurante">
 					</div>
 				</div>
 				<div class="box-text">

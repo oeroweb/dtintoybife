@@ -16,13 +16,13 @@
 						<div class="box-content-top container-wrap space-between">
 							<div class="box-empty"></div>
 							<div class="box-redes container-wrap">
-								<a href="">
+								<a href="https://www.instagram.com/dtintoybife?igsh=NWR2OWkwdzhpeXI0" target="_blank">
 									<img src="assets/icons/instagram.svg" class="icon-redes" alt="instagram">
 								</a>
-								<a href="">
+								<a href="https://www.facebook.com/detintoybife?mibextid=LQQJ4d" target="_blank">
 									<img src="assets/icons/facebook.svg" class="icon-redes" alt="facebook">
 								</a>
-								<a href="">
+								<a href="" class="hidden">
 									<img src="assets/icons/twitter.svg" class="icon-redes" alt="twitter">
 								</a>
 							</div>

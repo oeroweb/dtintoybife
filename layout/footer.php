@@ -42,16 +42,16 @@
 					<a type="submit" href="" class="btn btn-verde">Enviar</a>
 				</form>
 				<div class="box-redes">
-					<a href="" class="item-redes"> 
+					<a href="https://www.facebook.com/detintoybife?mibextid=LQQJ4d" target="_blank" class="item-redes"> 
 						<img src="assets/icons/facebook-black.svg" alt="ingresar a facebook">
 					</a>
-					<a href="" class="item-redes"> 
+					<a href="" class="item-redes hidden"> 
 						<img src="assets/icons/twiter-black.svg" alt="ingresar a twitter">
 					</a>
-					<a href="" class="item-redes"> 
+					<a href="https://api.whatsapp.com/send?phone=51948250458&text=Necesito%20ayuda%20para%20realizar%20una%20reserva%20para%20el%20día%20hoy%20Gracias." target="_blank" class="item-redes"> 
 						<img src="assets/icons/whatsapp.svg" alt="ingresar a whatsapp">
 					</a>
-					<a href="" class="item-redes"> 
+					<a href="https://www.instagram.com/dtintoybife?igsh=NWR2OWkwdzhpeXI0" target="_blank" class="item-redes"> 
 						<img src="assets/icons/instragram-black.svg" alt="ingresar a instagram">
 					</a>
 				</div>
