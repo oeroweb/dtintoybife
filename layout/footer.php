@@ -45,9 +45,9 @@
 					<a href="https://www.facebook.com/detintoybife?mibextid=LQQJ4d" target="_blank" class="item-redes"> 
 						<img src="assets/icons/facebook-black.svg" alt="ingresar a facebook">
 					</a>
-					<a href="" class="item-redes hidden"> 
+					<!-- <a href="" class="item-redes hidden"> 
 						<img src="assets/icons/twiter-black.svg" alt="ingresar a twitter">
-					</a>
+					</a> -->
 					<a href="https://api.whatsapp.com/send?phone=51948250458&text=Necesito%20ayuda%20para%20realizar%20una%20reserva%20para%20el%20día%20hoy%20Gracias." target="_blank" class="item-redes"> 
 						<img src="assets/icons/whatsapp.svg" alt="ingresar a whatsapp">
 					</a>

@@ -10,7 +10,7 @@
 	<meta name="description" content=""/>
   <meta name="keywords" content=""/>
   <meta name="robots" content="Index, Follow">      
-	<title>D' Tinto && Biffe</title>
+	<title>DTinto & Bife</title>
 	
 	<!-- Librerias CSS -->
 	<link rel="stylesheet" type="text/css" href="assets/css/animate.css">

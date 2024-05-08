@@ -138,7 +138,7 @@
 							<h2 class="title">Conoce nuestra variedad de platos</h2>
 						</div>
 						<p class="text">Somos especialistas en carnes y vinos, aquí podrás conocer nuestra propuesta gastronómica así como también la variedad de cortes americanos y argentinos que ofrecemos.</p>
-						<a href="assets/doc/Carta_2023.pdg" class="btn">Ver carta
+						<a href="assets/doc/Carta_2023.pdf" target="_blank" class="btn">Ver carta
 							<img src="assets/icons/book.svg">
 						</a>
 					</div>
@@ -189,7 +189,7 @@
 					<img src="assets/images/vinos.webp" alt="">
 						<div class="box-hover">
 							<h2>Vinos</h2>
-							<a href="assets/doc/CARTA_BEBIDAS-MIRAFLORES.pdf">
+							<a href="assets/doc/CARTA_BEBIDAS-MIRAFLORES.pdf" target="_blank">
 								<img src="assets/icons/eyes.svg" alt=""> 
 							</a>
 						</div>
