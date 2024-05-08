@@ -116,7 +116,7 @@
               <input type="tel" placeholder="Número de contacto" id="telefono" required>
             </div>
 						<p> Para reservas de 10 a más personas, por favor comunícate con nosotros via 
-						<a href="https://api.whatsapp.com/send?phone=51991703456&text=Necesito%20ayuda%20para%20realizar%20una%20reserva%20para%20el%20día%20hoy%20Gracias." target="_blank">Whatsapp.</a></p>
+						<a href="https://api.whatsapp.com/send?phone=51975671756&text=Necesito%20ayuda%20para%20realizar%20una%20reserva%20para%20el%20día%20hoy%20Gracias." target="_blank">Whatsapp.</a></p>
             <div class="box-desc">
               <label for="">Comentario adicional</label>
               <textarea placeholder="Ingresar comentario" rows="6" id="comentario"></textarea>
@@ -141,7 +141,7 @@
 				</div>
 			</div>
 			<div class="box2">
-				<a href="https://api.whatsapp.com/send?phone=51991703456&text=Necesito%20ayuda%20para%20realizar%20una%20reserva%20para%20el%20día%20hoy%20Gracias." target="_blank"> 
+				<a href="https://api.whatsapp.com/send?phone=51975671756&text=Necesito%20ayuda%20para%20realizar%20una%20reserva%20para%20el%20día%20hoy%20Gracias." target="_blank"> 
 					<div class="container-wrap">
 						<!-- <i class="fa fa-whatsapp w10 green"></i>  -->
 						<span class="w80"> D'Tinto & Bife <br> <span class="gris">Escríbenos</span> </span>

@@ -560,6 +560,11 @@ textarea {
   overflow: hidden;
   position: relative;
   font-family: "Roboto Condensed";
+  display: flex;
+  flex-direction: column;
+  background: url("../images/background-header.svg");
+  justify-content: center;
+  align-items: center;
 }
 .navbarSlider .slider .box-texto {
   color: #ffffff;
@@ -600,20 +605,20 @@ textarea {
 }
 .nosotros_area .box-left {
   position: absolute;
-  top: -11%;
+  top: -174px;
+  left: 0;
 }
 .nosotros_area .box-right {
   position: absolute;
   right: 0;
-  top: -11%;
+  top: -150px;
 }
 .nosotros_area .box-center {
   position: absolute;
-  top: -5%;
+  top: -75px;
   left: 50%;
-  transform: translateX(-50%);
+  margin-left: -460px;
   transition: all 0.5s ease;
-  width: 1244px;
   display: flex;
   gap: 40px;
 }
@@ -635,6 +640,7 @@ textarea {
 .nosotros_area .box-center .card-nosotros .text {
   display: flex;
   flex-direction: column;
+  font-size: 24px;
   line-height: 28px;
   text-align: center;
 }
@@ -695,15 +701,8 @@ textarea {
   transition: all 0.5s ease;
 }
 @media (max-width: 1450px) {
-  .nosotros_area .box-center {
-    top: -4%;
-    transform: translateX(-37%);
-  }
   .nosotros_area .box-center .card-nosotros {
     width: 200px;
-  }
-  .nosotros_area .box-left, .nosotros_area .box-right {
-    top: -9%;
   }
 }
 @media (min-width: 1201px) {
@@ -717,14 +716,16 @@ textarea {
 }
 @media (max-width: 1200px) {
   .nosotros_area .box-center {
-    top: -3%;
-    transform: translateX(-30%);
+    margin-left: -424px;
+    transition: all 0.5s ease;
   }
   .nosotros_area .box-center .card-nosotros {
-    width: 160px;
+    width: 182px;
+    padding: 12px 24px;
   }
-  .nosotros_area .box-left, .nosotros_area .box-right {
-    top: -7%;
+  .nosotros_area .box-center .card-nosotros .text {
+    font-size: 16px;
+    line-height: 17px;
   }
   .nosotros_area .box-container-nosotros .box-text-nosotros {
     margin-right: 0;
@@ -738,11 +739,49 @@ textarea {
     margin: auto;
   }
 }
-@media (max-width: 780px) {
+@media (max-width: 900px) {
   .nosotros_area .box-center {
+    gap: 10px;
+    margin-left: -380px;
+    transition: all 0.5s ease;
+  }
+}
+@media (max-width: 830px) {
+  .nosotros_area {
+    padding: 24px;
+  }
+  .nosotros_area .box-center {
+    position: relative;
+    gap: 10px;
+    top: 0;
+    left: 0;
+    margin-left: 0px;
+    width: 60%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    transition: all 0.5s ease;
+  }
+  .nosotros_area .box-container-nosotros {
+    padding-top: 24px;
+  }
+}
+@media (max-width: 780px) {
+  .nosotros_area .box-container-nosotros .box-images-nosotros {
+    width: 100%;
+  }
+}
+@media (max-width: 700px) {
+  .nosotros_area .box-center {
+    width: 80%;
+  }
+}
+@media (max-width: 550px) {
+  .nosotros_area .box-left, .nosotros_area .box-right {
     display: none;
   }
-  .nosotros_area .box-container-nosotros .box-images-nosotros {
+  .nosotros_area .box-center {
     width: 100%;
   }
 }
@@ -771,6 +810,7 @@ textarea {
   font-size: 14px;
   line-height: 16px;
   text-align: center;
+  margin-bottom: 24px;
 }
 .nosotros_area .box-container-expertos .box-text-expertos .item-expertos .box-image {
   display: flex;
@@ -784,26 +824,28 @@ textarea {
 }
 @media (max-width: 1400px) {
   .nosotros_area .box-container-expertos .box-text-expertos {
-    gap: 30px;
+    gap: 40px;
+    justify-content: space-around;
   }
   .nosotros_area .box-container-expertos .box-text-expertos .item-expertos {
     width: 30%;
   }
 }
 @media (max-width: 1100px) {
-  .nosotros_area .box-container-expertos .box-text-expertos {
-    gap: 30px;
-  }
   .nosotros_area .box-container-expertos .box-text-expertos .item-expertos {
-    width: 46%;
+    width: 40%;
   }
 }
-@media (max-width: 780px) {
+@media (max-width: 630px) {
+  .nosotros_area .box-container-expertos .box-title {
+    margin-bottom: 0;
+  }
   .nosotros_area .box-container-expertos .box-text-expertos {
-    gap: 50px;
+    gap: 24px;
   }
   .nosotros_area .box-container-expertos .box-text-expertos .item-expertos {
     width: 100%;
+    height: auto;
   }
 }
 
@@ -837,10 +879,12 @@ textarea {
 }
 .carta_area .box-container-carta .colum-left {
   display: flex;
+  transition: all 0.5s ease;
 }
 .carta_area .box-container-carta .colum-right {
   padding: 45px 100px;
   padding-right: 0px;
+  transition: all 0.5s ease;
 }
 @media (max-width: 1400px) {
   .carta_area .box-container-carta .colum-right {
@@ -861,6 +905,29 @@ textarea {
   }
   .carta_area .box-container-carta .colum-right {
     padding-top: 40px;
+  }
+}
+@media (max-width: 550px) {
+  .carta_area .box-container-carta .item-carta {
+    width: 100%;
+    transition: all 0.5s ease;
+  }
+  .carta_area .box-container-carta .colum-left img {
+    width: 100%;
+    transition: all 0.5s ease;
+  }
+  .carta_area .box-container-carta .colum-left img:first-child {
+    display: none;
+    transition: all 0.5s ease;
+  }
+  .carta_area .box-container-carta .colum-right {
+    padding: 24px 0 0 0;
+    display: flex;
+    justify-content: center;
+    transition: all 0.5s ease;
+  }
+  .carta_area .box-container-carta .colum-right .box-title, .carta_area .box-container-carta .colum-right .text {
+    display: none;
   }
 }
 
@@ -967,6 +1034,9 @@ textarea {
   font-size: 28px;
   margin-top: 26px;
 }
+.reservas_area .box-title .title-2, .reservas_area .box-title .text {
+  display: none;
+}
 .reservas_area .box-container-reservas .img-reserva {
   width: 600px;
   transition: all 0.5s ease;
@@ -997,6 +1067,30 @@ textarea {
     width: 100%;
   }
 }
+@media (max-width: 550px) {
+  .reservas_area .box-title .title {
+    display: none;
+  }
+  .reservas_area .box-title .title-2 {
+    display: block;
+    color: #FFC668;
+    margin-bottom: 24px;
+  }
+  .reservas_area .box-title .text {
+    display: block;
+  }
+  .reservas_area .box-title .w10 {
+    width: 30%;
+  }
+  .reservas_area .box-container-reservas .box-text .text {
+    display: none;
+  }
+  .reservas_area .box-container-reservas .box-text .box-container-text {
+    display: flex;
+    justify-content: center;
+    margin-top: 24px;
+  }
+}
 
 .reservas_banner {
   color: #ffffff;
@@ -1010,6 +1104,11 @@ textarea {
   font-size: 56px;
   line-height: 65px;
   margin-bottom: 40px;
+}
+@media (max-width: 640px) {
+  .reservas_banner {
+    display: none;
+  }
 }
 
 .reserva_section {
@@ -1206,6 +1305,21 @@ textarea {
   }
   .reserva_section .box-reserva-form .form-reserva .colum-left, .reserva_section .box-reserva-form .form-reserva .colum-right {
     width: 100%;
+  }
+}
+@media (max-width: 600px) {
+  .reserva_section .box-reserva-form {
+    padding: 10px;
+    transition: all 0.5s ease;
+  }
+  .reserva_section .box-reserva-form .form-reserva {
+    flex-wrap: wrap;
+  }
+  .reserva_section .box-reserva-form .form-reserva .colum-left, .reserva_section .box-reserva-form .form-reserva .colum-right {
+    width: 100%;
+  }
+  .reserva_section .box-reserva-form .form-reserva .colum-right {
+    padding-left: 0;
   }
 }
 

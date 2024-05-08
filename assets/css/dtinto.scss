@@ -223,7 +223,7 @@ textarea{resize: none;}
   // }
 
   .slider{ width: 100%; height:100vh; outline: none; top:0; overflow: hidden; position:relative; font-family: "Roboto Condensed"; 
-    // .box-hover{position: absolute; width: 100%; height: 100%; left:0; top:0; background-color: $rgbanegro;}    
+    display: flex; flex-direction: column; background: url('../images/background-header.svg'); justify-content: center; align-items: center;
     .box-texto{color:$crblanco; text-align: center; display: flex;
       flex-direction: column; align-items: center;
       .text-banner-header{font-size:40px; margin-bottom:20px; font-weight: 700; line-height: 46px;}
@@ -236,13 +236,13 @@ textarea{resize: none;}
   }
 }
 
-.nosotros_area{ position: relative; background-color: $crnegro; color: $crblanco; padding-bottom: 40px;
-  .box-left{position: absolute; top: -11%;}
-  .box-right{position: absolute; right: 0; top: -11%;}
-  .box-center{position: absolute; top: -5%; left: 50%; transform: translateX(-50%); transition: $trst2; width: 1244px; display: flex; gap: 40px;
+.nosotros_area{ position: relative; background-color: $crnegro; color: $crblanco; padding-bottom: 40px;  
+  .box-left{position: absolute; top: -174px; left: 0;}
+  .box-right{position: absolute; right: 0; top: -150px;}
+  .box-center{position: absolute; top: -75px; left: 50%; margin-left: -460px; transition: $trst2; display: flex; gap: 40px;
     .card-nosotros{ width: 281px; height: 153px; display: flex; flex-direction: column; align-items: center; justify-content: center; background-color: $crblanco; color: #1E1E1E; border-radius: 22px;  padding: 16px;
       .img-card{ margin-bottom: 18px;}
-      .text{display: flex; flex-direction: column; line-height: 28px; text-align: center;}
+      .text{display: flex; flex-direction: column; font-size: 24px; line-height: 28px; text-align: center;}
     }
   }
   .box-container-nosotros{ padding-top: 140px; display: flex; align-items: center; padding-bottom: 40px; transition: $trst2;
@@ -267,10 +267,9 @@ textarea{resize: none;}
   }
 
   @media (max-width: 1450px) {
-    .box-center{ top:-4%; transform: translateX(-37%); 
+    .box-center{  
       .card-nosotros{width: 200px;}
     }
-    .box-left, .box-right{ top: -9%;}
   }
 
   @media (min-width: 1201px) {
@@ -280,10 +279,11 @@ textarea{resize: none;}
     }
   }
   @media (max-width: 1200px) {
-    .box-center{ top:-3%; transform: translateX(-30%); 
-      .card-nosotros{width: 160px;}
-    }
-    .box-left, .box-right{ top: -7%;} 
+    .box-center{ margin-left: -424px; transition: $trst2;
+      .card-nosotros{width: 182px; padding: 12px 24px; 
+        .text{font-size: 16px; line-height: 17px;} 
+      }
+    }    
     .box-container-nosotros{
       .box-text-nosotros{margin-right: 0;}
       .box-images-nosotros, .box-text-nosotros{width: 100%; padding-top: 30px; }
@@ -291,11 +291,27 @@ textarea{resize: none;}
     }
   }
   
+  @media (max-width: 900px) {
+    .box-center{gap: 10px; margin-left: -380px; transition: $trst2;}    
+  }
+  @media (max-width: 830px) {
+    padding: 24px;
+    .box-center{ position: relative; gap: 10px; top: 0; left: 0; margin-left: 0px; width: 60%; margin: auto; display: flex; flex-wrap: wrap; justify-content: center; transition: $trst2;}
+    .box-container-nosotros{ padding-top: 24px; } 
+  }
   @media (max-width: 780px) {
-    .box-center{display: none;}
     .box-container-nosotros{
       .box-images-nosotros{width: 100%; }
     }
+  }
+  
+  @media (max-width: 700px) {
+    .box-center{width: 80%;}
+  }
+  
+  @media (max-width: 550px) {
+    .box-left, .box-right{display: none;}
+    .box-center{width: 100%;}
   }
 
   .box-container-expertos{
@@ -304,7 +320,7 @@ textarea{resize: none;}
     }
     .box-text-expertos{ gap: 229px;
       .item-expertos{width: 260px; height: 430px; display: flex; transition: $trst2; flex-direction: column; justify-content: space-around; gap: 24px;
-        .text{ font-size: 14px; line-height: 16px; text-align: center; }
+        .text{ font-size: 14px; line-height: 16px; text-align: center; margin-bottom: 24px; }
         .box-image{ display: flex; justify-content: center;
         img{width: 206px;}}
         .text-footer{text-align: center;}
@@ -314,20 +330,21 @@ textarea{resize: none;}
 
   @media (max-width: 1400px) {
     .box-container-expertos{
-      .box-text-expertos{ gap:30px;
+      .box-text-expertos{ gap:40px; justify-content: space-around;
         .item-expertos{width: 30%;}}
     }
   }
   @media (max-width: 1100px) {
     .box-container-expertos{
-      .box-text-expertos{ gap:30px;
-        .item-expertos{width: 46%;}}
+      .box-text-expertos{ 
+        .item-expertos{width: 40%;}}
     }
   }
-  @media (max-width: 780px) {
+  @media (max-width: 630px) {
     .box-container-expertos{
-      .box-text-expertos{ gap:50px;
-        .item-expertos{width: 100%;}}
+      .box-title{margin-bottom: 0;}
+      .box-text-expertos{ gap:24px;
+        .item-expertos{width: 100%; height: auto;}}
     }
   }
 }
@@ -342,8 +359,8 @@ textarea{resize: none;}
       .box-title{ width: 100%;}
       .text{margin-bottom: 24px;}
     }
-    .colum-left{display: flex;}
-    .colum-right{ padding: 45px 100px; padding-right: 0px;}
+    .colum-left{display: flex; transition: $trst2;}
+    .colum-right{ padding: 45px 100px; padding-right: 0px; transition: $trst2;}
   }
   @media (max-width: 1400px) {
     .box-container-carta{
@@ -362,6 +379,17 @@ textarea{resize: none;}
     .box-container-carta{
       .item-carta{ width: 100%;}
       .colum-right{ padding-top: 40px;}
+    }
+  }
+  
+  @media (max-width: 550px) {    
+    .box-container-carta{
+      .item-carta{ width: 100%; transition: $trst2;}
+      .colum-left img{ width: 100%; transition: $trst2;}
+      .colum-left img:first-child{ display: none; transition: $trst2; }
+      .colum-right{ padding: 24px 0 0 0; display: flex; justify-content: center; transition: $trst2;
+        .box-title, .text{ display: none;}
+      }
     }
   }
 }
@@ -420,6 +448,7 @@ textarea{resize: none;}
 .reservas_area{ background-color: $crnegro; color: $crblanco; padding: 80px 0;
   .box-title{ margin-bottom: 40px;
     .title{ color: $crnaranja; font-size: 28px; margin-top: 26px;}
+    .title-2, .text{display: none;}
   }
   .box-container-reservas{ 
     .img-reserva{ width: 600px; transition: $trst2;}
@@ -447,11 +476,30 @@ textarea{resize: none;}
       } 
     }
   }
+  
+  @media (max-width: 550px) {
+    .box-title{
+      .title{display: none;}
+      .title-2{display: block; color: $crnaranja; margin-bottom: 24px;}
+      .text{display: block;}
+      .w10{width: 30%;}
+    }
+    .box-container-reservas{      
+      .box-text{
+        .text{display: none;}
+        .box-container-text{ display: flex; justify-content: center; margin-top: 24px;}
+      } 
+    }
+  }
 }
 
 .reservas_banner{ color: $crblanco; padding: 80px 0; background: url('../images/bookings-banner.svg');
   .box-container-text{ width: 635px;
     .text{font-size: 56px; line-height: 65px; margin-bottom: 40px;}
+  }
+
+  @media (max-width:640px){
+    display: none;
   }
 }
 
@@ -557,6 +605,14 @@ textarea{resize: none;}
     .box-reserva-form{
       .form-reserva{ flex-wrap: wrap;
         .colum-left, .colum-right{width: 100%;}    
+      }  
+    }
+  }
+  @media (max-width:600px){
+    .box-reserva-form{ padding: 10px; transition: $trst2; 
+      .form-reserva{ flex-wrap: wrap;
+        .colum-left, .colum-right{width: 100%;}
+        .colum-right{ padding-left: 0;}  
       }  
     }
   }
