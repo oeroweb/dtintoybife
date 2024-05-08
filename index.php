@@ -2,24 +2,22 @@
 
 	<section class="navbarSlider">
 	<?php  include "layout/navbar.php" ?>
-		<div class="slider example-1">	
-			<div style="display: flex; align-items: center; justify-content: center; height: 100vh;">
-				<img src="assets/images/background-header.svg" class="w100" alt="D' Tinto & Bife">
-				<div class="box-texto">
-					<div class="aniview" data-av-animation="fadeInDown">
-						<div class="box-text-header">
-							<h1 class="text">D´Tinto & Bife</h1>
-						</div>
-						<h2 class="text-banner-header">CUANDO ALGO ESTA BIEN HECHO, <br>
-							GENERALMENTE ES LA CARNE</h2>
+		<div class="slider ">	
+			<!-- <img src="assets/images/background-header.svg" class="w100" alt="D' Tinto & Bife"> -->
+			<div class="box-texto">
+				<div class="aniview" data-av-animation="fadeInDown">
+					<div class="box-text-header">
+						<h1 class="text">D´Tinto & Bife</h1>
 					</div>
-					<div class="aniview" data-av-animation="fadeInUp">			
-						<a href="reservar.php" class="btn ">Reservar 
-							<img src="assets/icons/book.svg">
-						</a>
-					</div>
+					<h2 class="text-banner-header">CUANDO ALGO ESTA BIEN HECHO, <br>
+						GENERALMENTE ES LA CARNE</h2>
 				</div>
-			</div>			   
+				<div class="aniview" data-av-animation="fadeInUp">			
+					<a href="reservar.php" class="btn ">Reservar 
+						<img src="assets/icons/book.svg">
+					</a>
+				</div>
+			</div>
 		</div>		
 	</section> 
 
@@ -30,7 +28,7 @@
 		<div class="box-right aniview" data-av-animation="fadeInRight">
 			<img src="assets/images/right-header.svg" alt="" >
 		</div>
-		<div class="box-center center">
+		<div class="box-center">
 			<div class="card-nosotros aniview" data-av-animation="fadeInUp">
 				<img src="assets/icons/car.svg" class="img-card" style="width: 71px;" alt="card" >
 				<p class="text"><span class="bold">Estacionamiento</span> y valet parking</p>
@@ -109,7 +107,7 @@
 						<div class="box-image">
 							<img src="assets/images/luis_soto.svg" alt="Luis Soto">
 						</div>
-						<p class="text-footer">Jerek Bohl <span class="bold"> <br>Gerente de operaciones</span> </p>
+						<p class="text-footer">Luis Soto <span class="bold"> <br>Socio</span> </p>
 					</div>
 				</div>
 			</div>
@@ -131,7 +129,6 @@
 						<div class="colum-left">
 							<img src="assets/images/letter-left.svg" class="w50" alt="">
 							<img src="assets/images/letter-right.svg" class="w50" alt="">
-
 						</div>
 					</div>
 				</div>
@@ -209,6 +206,8 @@
 			<div class="box-title">
 				<hr class="w10">
 				<h2 class="title">Especialidad de la casa: Carnes y Vinos</h2>
+				<h2 class="title-2">Reserva ahora en nuestro local de Miraflores o San Isidro</h2>
+				<p class="text">Para garantizar que cada visita sea especial, te ofrecemos la posibilidad de realizar reservas anticipadas y asegurarte el lugar perfecto para disfrutar de nuestras increíbles propuestas.</p>
 			</div>
 			<div class="box-container-reservas container-wrap items-center">
 				<div class="img-reserva">
@@ -226,7 +225,6 @@
 							<a href="reservar.php" class="btn">Reservar
 								<img src="assets/icons/book.svg">
 							</a>
-
 						</div>
 					</div>
 				</div>
