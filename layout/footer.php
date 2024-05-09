@@ -4,9 +4,9 @@
 			<div class=" aniview" data-av-animation="fadeInUp">
 				<h2>Local San Isidro</h2>						
 				<ul class="list-footer">
-					<li><a href=""> Av. Conquiistadores 605, San isidro</a></li>	
-					<li><a href="mailto:detintoybife@gmail.com"> detintoybife@gmail.com</a> </li>					
-					<li><a href=""> 948 250 458</a> </li>												
+					<li><a><img src="assets/icons/map.svg" alt="icono de ubicación">  Av. Conquiistadores 605, San isidro</a></li>	
+					<li><a href="mailto:detintoybife@gmail.com"><img src="assets/icons/email.svg" alt="escribir un correo"> detintoybife@gmail.com</a> </li>					
+					<li><a href="https://api.whatsapp.com/send?phone=51948250458"><img src="assets/icons/whatsapp.svg" alt="ingresar a whatsapp"> 948 250 458</a> </li>												
 				</ul>									
 			</div>
 		</div>				
@@ -15,9 +15,9 @@
 				<h2>Local Miraflores</h2>	
 				<div class="container-wrap">										
 					<ul class="list-footer">
-						<li><a href=""> Av. Republica de Panamá 6472, Miraflores</a></li>	
-						<li><a href="mailto:miraflores@dtintoybife.com"> miraflores@dtintoybife.com</a> </li>					
-						<li><a href=""> 975 671 756</a></li>												
+						<li><a ><img src="assets/icons/map.svg" alt="icono de ubicación"> Av. Republica de Panamá 6472, Miraflores</a></li>	
+						<li><a href="mailto:miraflores@dtintoybife.com"><img src="assets/icons/email.svg" alt="escribir un correo"> miraflores@dtintoybife.com</a> </li>					
+						<li><a href="https://api.whatsapp.com/send?phone=51975671756"><img src="assets/icons/whatsapp.svg" alt="ingresar a whatsapp"> 975 671 756</a></li>
 					</ul>						
 				</div>
 			</div>
@@ -27,9 +27,9 @@
 				<h2>Carta y Reserva</h2>	
 				<div class="container-wrap">										
 					<ul class="list-footer">
-						<li><a href="assets/doc/Carta_2023.pdf"> Carta principal</a></li>	
-						<li><a href="assets/doc/CARTA_BEBIDAS-MIRAFLORES.pdf"> Carta de vinos</a> </li>					
-						<li><a href="reservar.php"> Reservas</a></li>												
+						<li><a href="assets/doc/Carta_2023.pdf"><img src="assets/icons/book.svg" alt="escribir un correo"> Carta principal</a></li>	
+						<li><a href="assets/doc/CARTA_BEBIDAS-MIRAFLORES.pdf"><img src="assets/icons/bookmark.svg" alt="escribir un correo"> Carta de vinos</a> </li>					
+						<li><a href="reservar.php"><img src="assets/icons/user.svg" alt="escribir un correo"> Reservas</a></li>												
 					</ul>						
 				</div>
 			</div>

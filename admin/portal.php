@@ -100,7 +100,7 @@
 											<div class="colum-left">
 											<p class="w100 text">Listado de días bloqueados</p>	
 												<?php 
-													$datos = selectalldatos($db, 'tabla_horasbloqueadas', 1, 'id');
+													$datos = selectalldatos($db, 'tabla_horasBloqueadas', 1, 'id');
 													if(!empty($datos) && mysqli_num_rows($datos) >= 1):
 														while($dato = mysqli_fetch_assoc($datos)):																	
 												?>
@@ -198,7 +198,7 @@
 											<div class="colum-left">
 											<p class="w100 text">Listado de días bloqueados</p>	
 												<?php 
-													$datos = selectalldatos($db, 'tabla_horasbloqueadas', 2, 'id');
+													$datos = selectalldatos($db, 'tabla_horasBloqueadas', 2, 'id');
 													if(!empty($datos) && mysqli_num_rows($datos) >= 1):
 														while($dato = mysqli_fetch_assoc($datos)):																	
 												?>
