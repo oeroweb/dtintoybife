@@ -70,7 +70,7 @@
 			<div class="box-images-nosotros">
 				<div class="aniview" data-av-animation="fadeInRight">
 					<div class="box-images">
-						<img src="assets/images/nosotros.webp" style="width:508px" alt="Local y mesas" >
+						<img src="assets/images/nosotros.webp" class="img-back" alt="Local y mesas" >
 						<img src="assets/images/nosotros-dtinto.webp" class="img-float" alt="Representantes" >
 					</div>
 				</div>

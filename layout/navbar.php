@@ -34,9 +34,16 @@
 			</div>					
 		</div>				
 	</nav>			
-	<button id="toggleButton" class="toggle-button">
-		<span class="bar"></span>
-		<span class="bar"></span>
-		<span class="bar"></span>
-	</button>
+	<nav class="navbar-small container-wrap flex-col">
+		<div class="box-logo">
+			<a href="#top">
+				<img src="assets/icons/logo.svg" class="img-logo" alt="Logo D Tinto & Bife">
+			</a>
+		</div>							
+		<div class="navbar-list container-wrap space-between">			
+			<a href="#nosotros" class="nav-link">NOSOTROS</a>     
+			<a href="#lacarta" class="nav-link">LA CARTA</a>
+			<a href="#reservas" class="nav-link">RESERVAS</a>						
+		</div>	
+	</nav>
 </header>

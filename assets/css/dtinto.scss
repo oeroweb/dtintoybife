@@ -44,7 +44,7 @@ li { list-style: none;}
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
 
 body {
-font-family: "Roboto Condensed", sans-serif, Helvetica,  Arial !important;
+font-family: "Roboto Condensed", sans-serif, Helvetica,  Arial !important; overflow-x: hidden;
 }
 hr { height: 2px; border: none; background: $crnaranja; margin:3px 0;}
 input, select, textarea{width: 100%; padding: 10px 12px; border-radius: $radius; border: 1px solid $crblanco; outline: none;}
@@ -183,7 +183,7 @@ textarea{resize: none;}
         .box-content{ display: flex; flex-direction: column; width: calc(100% - 82px); max-width: 1332px; border-left: 1px solid $crblanco;
           .box-content-top{
             .box-empty{border: 1px solid $crblanco; border-top: none; border-left: none; width: calc(100% - 110px); height: 46px;}
-            .box-redes{width: 110px; border-bottom: 1px solid $crblanco; padding: 15px;
+            .box-redes{width: 110px; border-bottom: 1px solid $crblanco; padding: 15px; justify-content: space-around;
               .icon-redes{width: 14px; margin-right: 12px;}
             }
           }
@@ -197,13 +197,17 @@ textarea{resize: none;}
         }
       }      		
     }    
-    .toggle-button {
-      display: none; background: transparent; border: none; cursor: pointer;
-      position: fixed; top: 10px; left: 10px; z-index: 150; 
-    }
-    .bar {
-      display: block; width: 25px; height: 3px;
-      background-color: #fff; margin: 5px 0;
+    .navbar-small{ display: none; transition:$trst2; align-items: center; background-color: $crplomo; color: $crblanco; padding: 12px 28px;
+      .box-logo{width: 50px; margin-bottom: 12px; 
+        .img-logo{width: 100%;}
+      }
+      .navbar-list{ padding: 12px 0; gap:10px; border-bottom: 1px solid $crblanco;
+        .nav-link{ padding: 10px; position: relative;
+          &:after{ content: " "; position: absolute; width: 0%; left: 50%;  bottom: 0; height: 1px; background-color: $crblanco; transition: all 1s ease;
+          }
+          &:hover:after{width: 100%; left: 0%; }   
+        }
+      }
     }
   }
 
@@ -213,9 +217,12 @@ textarea{resize: none;}
         .nav-link{margin-right: 10px;}      
     }}    
   }
-  // @media (max-width: 670px){
-  //   .header{.navbar{}}    
-  // }
+  @media (max-width: 650px){
+    .header{
+      .navbar{display: none; transition:$trst2;}
+      .navbar-small{display: flex; transition:$trst2;}
+    } 
+  }
 
   // .fixed{position: fixed; width:100%; top:0; left:0; padding:8px 0; z-index:100; background-color:$rgbanegro; transition:$trst2;
   //   .box-logo{transition:$trst2;
@@ -232,7 +239,13 @@ textarea{resize: none;}
       .btn{ margin-top:32px; display: inline-flex; width: 187px;
         img {display: inline-flex !important;}
       }
-    }  
+    } 
+  }
+
+  @media (max-width: 650px){
+    .slider{
+      .box-texto{ display: none;}
+    }
   }
 }
 
@@ -261,6 +274,7 @@ textarea{resize: none;}
     }
     .box-images-nosotros{ position: relative; width: calc(100% - 578px); transition: $trst2;
       .box-images{display: flex; justify-content: flex-end; transition: $trst2;
+        .img-back{ width: 508px;}
         .img-float{position: absolute; left: -34px; top: 33px; width: 471px; height: 677px; transition: $trst2;}
       }
     }    
@@ -274,8 +288,7 @@ textarea{resize: none;}
 
   @media (min-width: 1201px) {
     .box-container-nosotros{
-      .box-text-nosotros{max-width: 516px;}
-      .box-images-nosotros, .box-text-nosotros{width: auto; transition: $trst2;}
+      .box-text-nosotros{max-width: 516px; width: auto; transition: $trst2;}
     }
   }
   @media (max-width: 1200px) {
@@ -287,36 +300,51 @@ textarea{resize: none;}
     .box-container-nosotros{
       .box-text-nosotros{margin-right: 0;}
       .box-images-nosotros, .box-text-nosotros{width: 100%; padding-top: 30px; }
-      .box-images-nosotros{width: 80%; margin: auto; }
+      .box-images-nosotros{width: 70%; margin: auto; }
     }
   }
   
   @media (max-width: 900px) {
-    .box-center{gap: 10px; margin-left: -380px; transition: $trst2;}    
+    .box-center{gap: 10px; margin-left: -380px; transition: $trst2;}
+    .box-container-nosotros{
+      .box-images-nosotros{width: 100%; transition: $trst2;}
+    }   
   }
+
   @media (max-width: 830px) {
     padding: 24px;
     .box-center{ position: relative; gap: 10px; top: 0; left: 0; margin-left: 0px; width: 60%; margin: auto; display: flex; flex-wrap: wrap; justify-content: center; transition: $trst2;}
     .box-container-nosotros{ padding-top: 24px; } 
   }
-  @media (max-width: 780px) {
-    .box-container-nosotros{
-      .box-images-nosotros{width: 100%; }
-    }
-  }
   
   @media (max-width: 700px) {
     .box-center{width: 80%;}
+    .box-container-nosotros{
+      .box-images-nosotros{
+        .box-images{
+          .img-back{width: 100%;}
+          .img-float{width: 80%; height: auto; left: 10%;}
+        }
+       }
+    }
   }
   
   @media (max-width: 550px) {
     .box-left, .box-right{display: none;}
     .box-center{width: 100%;}
+    
+    .box-center{ 
+      .card-nosotros{width: 160px; padding: 12px 24px; 
+        .text{font-size: 14px; line-height: 17px;} 
+      }
+    }    
+      
+    
   }
 
   .box-container-expertos{
     .box-title{ margin-bottom: 40px; width: 240px;
-      .title{ color: $crnaranja; font-size: 28px; margin-bottom: 26px;}
+      .title{ color: $crnaranja; font-size: 28px; margin-bottom: 24px;}
     }
     .box-text-expertos{ gap: 229px;
       .item-expertos{width: 260px; height: 430px; display: flex; transition: $trst2; flex-direction: column; justify-content: space-around; gap: 24px;
@@ -341,8 +369,7 @@ textarea{resize: none;}
     }
   }
   @media (max-width: 630px) {
-    .box-container-expertos{
-      .box-title{margin-bottom: 0;}
+    .box-container-expertos{      
       .box-text-expertos{ gap:24px;
         .item-expertos{width: 100%; height: auto;}}
     }
@@ -650,7 +677,8 @@ textarea{resize: none;}
   }
   @media (max-width: 620px) {
     .container-footer{ 
-      .item-footer{width: 100%; transition: $trst2;}
+      .item-footer{width: 100%; transition: $trst2; order:2;}
+      .item-footer:last-child{order: 1;}
     }    
   }
 }

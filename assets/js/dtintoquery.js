@@ -67,11 +67,17 @@ $(document).ready(function(){
 });
 
 $(document).ready(function () {
-	$('.aniview').AniView(options);
 
-	var options = {
-		animateThreshold: 30,
-		scrollPollInterval: 20
+	var screenWidth = $(window).width();
+
+	if(screenWidth > 680){
+		$('.aniview').AniView(options);
+	
+		var options = {
+			animateClass: 'animated',
+			animateThreshold: 0,
+    	scrollPollInterval: 0	
+		}
 	}
 });	
 

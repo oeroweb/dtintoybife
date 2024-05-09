@@ -27,9 +27,9 @@
 				<h2>Carta y Reserva</h2>	
 				<div class="container-wrap">										
 					<ul class="list-footer">
-						<li><a href=""> Carta principal</a></li>	
-						<li><a href=""> Carta de vinos</a> </li>					
-						<li><a href=""> Reservas</a></li>												
+						<li><a href="assets/doc/Carta_2023.pdf"> Carta principal</a></li>	
+						<li><a href="assets/doc/CARTA_BEBIDAS-MIRAFLORES.pdf"> Carta de vinos</a> </li>					
+						<li><a href="reservar.php"> Reservas</a></li>												
 					</ul>						
 				</div>
 			</div>
