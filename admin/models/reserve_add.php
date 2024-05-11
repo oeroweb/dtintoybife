@@ -29,7 +29,44 @@
 		// if($resultado2){
 		// 	echo 'reserva_duplicada';
 		// } else {
-		// }	
+		// }
+
+		$body = <<<EOD
+		<html>
+			<head>
+				<title>Tenemos nueva reserva</title>
+			</head>
+			<body>
+				<h1>$nombre, envió una reserva</h1>
+				<ul style="margin:10px 0;line-height: 1.8; list-style: none;">
+					<li>Nombre : '. $nombre .'</li>
+					<li>Teléfono : ' . $telefono .', - Correo: '. $email.' </li>
+					<li>Fecha : ' . $date .', - Hora : '. $hora.'</li>					
+					<li>Cantidad: '. $cantidad.' de personas.</li>			
+					<li>Comentario: '. $comentario.' .</li>			
+					<li>Haz click <a href="https://dtintoybife.com/admin/" style="color:#1c75bc; font-weight: 700;">aquí</a>  para ingresar</li>					
+				</ul>	
+			</body>
+		</html>
+		EOD;
+
+		function enviarCorreo($para, $asunto, $body) {
+			$headers = "MIME-Version: 1.0" . "\r\n";
+			$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+			$headers .= 'From: <jerek@dtintoybife.com>' . "\r\n";
+
+			if(mail($para, $asunto, $body, $headers)) {
+				echo "Correo enviado con éxito a $para";
+			} else {
+				echo "Error al enviar el correo";
+			}
+		}
+
+		if($local == 1){
+			enviarCorreo('jerek@dtintoybife.com', 'Tenemos nueva reserva', $body);
+		} else {
+			enviarCorreo('miraflores@dtintoybife.com', 'Tenemos nueva reserva', $body);
+		}
 	}
 	
 ?>

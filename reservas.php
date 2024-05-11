@@ -121,41 +121,35 @@
       <div class="btn-closed bold" onclick="cerrarModal();"><a href="">X</a></div>
       <div class="box-image">
         <img src="assets/icons/book.svg" alt="Icono de Book">
-      </div>
-				<?php 
-					$datos = selectFinishReserve($db, 'tabla_reservas');
-					if(!empty($datos) && mysqli_num_rows($datos) >= 1):
-						while($dato = mysqli_fetch_assoc($datos)):
-				?>	
+      </div>				
 				<div class="box-content">
-					<h3>¡Felicitaciones <span class="bold"><?=$dato['nombre']?>!</span> </h3>					
+					<h3>¡Felicitaciones <span class="bold" id="name-modal"></span> </h3>					
 					<p>Tu reserva ha sido confirmada con <span class="bold">éxito. </span> ¡Estamos emocionados de recibirte pronto!</p>
 				</div>
 				<hr>
 				<div class="box-icons">
 					<div class="items-icon">
 						<img src="assets/icons/calendar.svg" alt="Icono de Calendario">
-						<p><?=$dato['fecha']?></p>
+						<p id="fecha-modal"></p>
 					</div>
 					<div class="items-icon">
 						<img src="assets/icons/user.svg" alt="Icono de Persona">
-						<p><?=$dato['cantidad']?> personas</p>
+						<p id="cantidad-modal"> </p>
 					</div>
 					<div class="items-icon">
 						<img src="assets/icons/clock.svg" alt="Icono de Reloj">
-						<p><?=$dato['hora'] >= "13:00" ? $dato['hora']." p.m.": $dato['hora']." a.m."?></p>
+						<p id="hora-modal"></p>
 					</div>
 					<div class="items-icon">
 						<img src="assets/icons/map.svg" alt="Icono de Ubicación">
-						<p>Sede, <?=$dato['sede'] == 1 ? "San isidro" : "Miraflores" ?></p>
+						<p id="sede-modal"></p>
 					</div>
 				</div>
 				<div class="box-footer">
 					<a class="btn btn-verde" onclick="cerrarModal();">Entendido</a>
-					<a href="models/updates/eventos-public.php?id=<?=$dato['id']?>" class="btn btn-verde2" title="Editar">							
-					Editar</a>										
+					<!-- <a href="models/updates/eventos-public.php?id=<?//=$dato['id']?>" class="btn btn-verde2" title="Editar">Editar</a>	 -->														
 				</div>
-			<?php endwhile; endif; ?>
+			
 			<div class="w100 al-ct">
 				<p>* Tiempo máximo de espera es de 15 minutos.</p>
 			</div>
@@ -208,6 +202,7 @@
 
   <script src="assets/js/calendar-mr.js"></script>
 	<script>
+		let datosForm = [];
 		function limpiarModal(){
 			$("#formulario")[0].reset();
 		}
@@ -217,7 +212,9 @@
 			$("#modalReserva").addClass("hidden");
 			$("#modalReserva").removeClass("mostrar");
 			limpiarModal();
+			datosForm.pop();
 		}
+
 		function mostrarModal(){
 			$("#modalReserva").addClass("mostrar");
 			$("#modalReserva").removeClass("hidden");
@@ -228,12 +225,20 @@
 			$('body').removeClass("overHidden");
 			$("#modalReservaDuplicate").addClass("hidden");
 			$("#modalReservaDuplicate").removeClass("mostrar");
-
 		}
+
 		function mostrarModal2(){
 			$("#modalReservaDuplicate").addClass("mostrar");
 			$("#modalReservaDuplicate").removeClass("hidden");
 			$('body').addClass("overHidden");
+		}
+
+		function viewForm(){
+			$('#name-modal').text(`${datosForm[0].nombre}!`);
+			$('#fecha-modal').text(datosForm[0].date);
+			$('#cantidad-modal').text(`${datosForm[0].cantidad} personas`);
+			$('#hora-modal').text((datosForm[0].hora >= "13:00") ? `${datosForm[0].hora} p.m` : `${datosForm[0].hora} a.m`);
+			$('#sede-modal').text((datosForm[0].local == 1 ? "Sede, San isidro" : "Sede, Miraflores"));
 		}
 
 		function subirScreen(){
@@ -285,6 +290,7 @@
 					telefono: telefono,
 					comentario: comentario
 				};
+				datosForm.push(datos);
 
 				$.post('admin/models/reserve_add.php', datos, function(response){
 					console.log(response);
@@ -293,9 +299,9 @@
 					// 	mostrarModal2();
 					// } else {
 						// console.log('else');
-						// }					
-					mostrarModal();
-												
+						// }
+					viewForm();				
+					mostrarModal();												
 					subirScreen();
 				})
 			});
@@ -305,7 +311,7 @@
 				if(selectedValue =='1'){
 					location.href ="reservar.php";
 				}		
-			})
+			});
 
 		});
 

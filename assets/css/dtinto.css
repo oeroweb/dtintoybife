@@ -417,6 +417,15 @@ textarea {
   margin-bottom: 12px;
   text-align: center;
 }
+@media (max-width: 550px) {
+  .modal .container-modal {
+    padding: 30px 40px;
+    width: 96%;
+  }
+  .modal .container-modal .box-icons .items-icon {
+    width: 100%;
+  }
+}
 
 .alert {
   width: 100%;
@@ -630,8 +639,18 @@ textarea {
   display: inline-flex !important;
 }
 @media (max-width: 650px) {
+  .navbarSlider .slider {
+    background: url("../images/background-header-sm.webp");
+    background-size: cover;
+    transition: all 0.5s ease;
+  }
   .navbarSlider .slider .box-texto {
-    display: none;
+    margin-top: 20%;
+    transition: all 0.5s ease;
+  }
+  .navbarSlider .slider .box-texto .text-banner-header {
+    font-size: 22px;
+    transition: all 0.5s ease;
   }
 }
 
@@ -1351,6 +1370,10 @@ textarea {
   }
 }
 @media (max-width: 900px) {
+  .reserva_section {
+    background: url("../images/background-header-sm.webp");
+    background-size: cover;
+  }
   .reserva_section .box-reserva-form .form-reserva {
     flex-wrap: wrap;
   }
@@ -1397,6 +1420,14 @@ textarea {
   font-size: 14px;
   line-height: 16px;
   margin-bottom: 18px;
+}
+.footer_area .container-footer .item-footer .list-footer li a {
+  display: flex;
+}
+.footer_area .container-footer .item-footer .list-footer li img {
+  width: 20px;
+  margin-right: 8px;
+  color: #ffffff;
 }
 .footer_area .container-footer .item-footer .footer-form {
   display: flex;

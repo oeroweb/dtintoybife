@@ -47,7 +47,15 @@ const calendarBody = document.getElementById("calendar-body");
 
 function isBlocked(date, month, year) {
 	let fullDate = `${year}-${month + 1}-${date}`;
+	// let today = new Date();
+	// let currentDate = new Date(date, month, year);
+
+	// if(currentDate > today.setHours(0, 0, 0, 0)){
+	// 	return true;
+	// }
 	return blockedDays.includes(fullDate);
+
+	
 }
 
 function showCalendar(month, year) {
