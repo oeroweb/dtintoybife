@@ -84,7 +84,7 @@
 			<div class="box-text-expertos container-wrap">
 				<div class="item-expertos">
 					<div class="aniview" data-av-animation="fadeInUp">
-						<p class="text">D' Tinto & Bife, un sueño que tuve hace muchos años y que hoy gracias a todo nuestro equipo, clientes y amigos. Logrando consolidarnos entre los mejores del rubro. Un restaurante es como abrir las puertas siempre procuras que se lleven lo mejor de uno, es por ello que siempre estamos pendientes a cada mínimo detalle.</p>
+						<p class="text">D' Tinto & Bife, un sueño que tuve hace muchos años y que hoy gracias a todo nuestro equipo, clientes y amigos. Hemos logrando consolidarnos entre los mejores del rubro. Un restaurante es como abrir las puertas siempre procuras que se lleven lo mejor de uno, es por ello que siempre estamos pendientes a cada mínimo detalle.</p>
 						<div class="box-image">
 							<img src="assets/images/luis_bohl.webp" alt="Luis Bohl Fundador">
 						</div>
@@ -93,7 +93,7 @@
 				</div>
 				<div class="item-expertos">
 					<div class="aniview" data-av-animation="fadeInUp">
-						<p class="text">Tuve la oportunidad de crecer en el mundo de los restaurantes, de chico lo veía como un trabajo que requería mucho tiempo y dedicación, con el paso de los años me di dando cuenta que no hay nada más gratificante que ver a los clientes disfrutar grandes momentos gracias al trabajo y esfuerzo que uno hace, simplemente no tiene precio.</p>
+						<p class="text">Tuve la oportunidad de crecer en el mundo de los restaurantes, de chico lo veía como un trabajo que requería mucho tiempo y dedicación, con el paso de los años empecé a darme cuenta que no hay nada más gratificante que ver a los clientes disfrutar grandes momentos gracias al trabajo y esfuerzo que uno hace, simplemente no tiene precio.</p>
 						<div class="box-image">
 							<img src="assets/images/jerek_bohl.webp" alt="Jerek Bolh Gerente de operaciones">
 						</div>
@@ -155,7 +155,7 @@
 						<img src="assets/images/entradas.webp" alt="Entradas">
 						<div class="box-hover">
 							<h2>Entradas</h2>							
-							<a href="">
+							<a href="assets/doc/Carta_2023.pdf">
 								<img src="assets/icons/eyes.svg" alt=""> 
 							</a>
 						</div>
@@ -166,10 +166,9 @@
 						<img src="assets/images/parrillas.webp" alt="Parrillas">
 						<div class="box-hover">						
 							<h2>Parrillas</h2>	
-							<a href="">
+							<a href="assets/doc/Carta_2023.pdf">
 								<img src="assets/icons/eyes.svg" alt=""> 
-							</a>					
-							
+							</a>							
 						</div>
 					</div>										
 				</div>				
