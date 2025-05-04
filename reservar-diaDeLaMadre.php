@@ -12,11 +12,10 @@
       <div class="box-reserva-form" id="calendario">
         <h2 class="bold title">Reservar Ahora</h2>
 				<div class="alert" id="alert"></div>
-				<div class="alert" id="resultado"></div>
         <form action="" method="POST" class="form-reserva" id="formulario">
           <div class="colum-left">
             <div class="calendar-container" id="calendar-container">
-							<input type="hidden" id="id">
+							<input type="hidden" id="id" value="1">
 							<input type="hidden" id="selectedDate">
 							<input type="hidden" id="selectedDay">
               <div class="calendar-header" id="calendar-header" >                
@@ -44,15 +43,20 @@
           <div class="colum-right container-wrap">
             <div class="box-field">
               <select name="local" id="local" placeholder="Local" autofocus="autofocus" required>
-                <option value="2">Miraflores - Av. Republica de Panamá 6472</option>
                 <option value="1">San isidro - Av. Conquiistadores 605</option>
+                <option value="2">Miraflores - Av. Republica de Panamá 6472</option>
+                <option value="3">San Borja - Av. Aviación 3424</option>
               </select>
             </div>
             <div class="box-field">
               <input type="text" placeholder="Nombre" id="nombre" required>
             </div>
             <div class="box-field">
-              <input type="time" name="hora" id="hora" placeholder="Hora" required>              
+              <!-- <input type="time" min="09:00" max="23:00" name="hora" step="900" id="hora" placeholder="Hora" required> -->
+							<select name="turno" id="turno" autofocus="autofocus" required>
+                <option value="1">Turno de 12:00pm a 2:30pm</option>
+                <option value="2">Turno de 3:00pm a 5:00pm </option>
+              </select>
             </div>
             <div class="box-field">
               <input type="email" placeholder="Correo electrónico" id="email" required>
@@ -72,10 +76,10 @@
               </select>
             </div>
             <div class="box-field">
-              <input type="tel" placeholder="Número de contacto" id="telefono" required>
+              <input type="tel"  placeholder="Número de contacto" id="telefono" minlength="9" required>
             </div>
 						<p> Para reservas de 10 a más personas, por favor comunícate con nosotros via 
-						<a href="https://api.whatsapp.com/send?phone=51975671756&text=Necesito%20ayuda%20para%20realizar%20una%20reserva%20para%20el%20día%20hoy%20Gracias." target="_blank">Whatsapp.</a></p>
+						<a href="https://api.whatsapp.com/send?phone=51948250458&text=Necesito%20ayuda%20para%20realizar%20una%20reserva%20para%20el%20día%20hoy%20Gracias." target="_blank">Whatsapp.</a></p>
             <div class="box-desc">
               <label for="">Comentario adicional</label>
               <textarea placeholder="Ingresar comentario" rows="6" id="comentario"></textarea>
@@ -100,7 +104,7 @@
 				</div>
 			</div>
 			<div class="box2">
-				<a href="https://api.whatsapp.com/send?phone=51975671756&text=Necesito%20ayuda%20para%20realizar%20una%20reserva%20para%20el%20día%20hoy%20Gracias." target="_blank"> 
+				<a href="https://api.whatsapp.com/send?phone=51948250458&text=Necesito%20ayuda%20para%20realizar%20una%20reserva%20para%20el%20día%20hoy%20Gracias." target="_blank"> 
 					<div class="container-wrap">
 						<!-- <i class="fa fa-whatsapp w10 green"></i>  -->
 						<span class="w80"> D'Tinto & Bife <br> <span class="gris">Escríbenos</span> </span>
@@ -146,8 +150,9 @@
 					</div>
 				</div>
 				<div class="box-footer">
-					<a class="btn btn-verde" onclick="cerrarModal();">Entendido</a>
-					<!-- <a href="models/updates/eventos-public.php?id=<?//=$dato['id']?>" class="btn btn-verde2" title="Editar">Editar</a>	 -->														
+					<a class="btn btn-verde w50" onclick="cerrarModal();">Realizar otra reserva </a>
+					<a class="btn btn-verde w50" onclick="cerrarModal3();">Realizar reserva para otra fecha</a>
+					<a class="btn btn-verde w100" onclick="cerrarModal4();">Entendido</a>
 				</div>
 			
 			<div class="w100 al-ct">
@@ -200,7 +205,7 @@
     </div>
   </div>
 
-  <script src="assets/js/calendar-mr.js"></script>
+  <script src="assets/js/calendar.js"></script>
 	<script>
 		let datosForm = [];
 		function limpiarModal(){
@@ -210,23 +215,29 @@
 		function cerrarModal(){
 			$('body').removeClass("overHidden");
 			$("#modalReserva").addClass("hidden");
-			$("#modalReserva").removeClass("mostrar");
+			$("#modalReserva").removeClass("mostrar");			
 			limpiarModal();
 			datosForm.pop();
+		}
+		function cerrarModal3(){			
+			location.href ="reservar.php";			
+		}
+		function cerrarModal4(){			
+			location.href ="index.php";			
 		}
 
 		function mostrarModal(){
 			$("#modalReserva").addClass("mostrar");
 			$("#modalReserva").removeClass("hidden");
-			$('body').addClass("overHidden");
+			$('body').addClass("overHidden");			
 		}
 
 		function cerrarModal2(){
 			$('body').removeClass("overHidden");
 			$("#modalReservaDuplicate").addClass("hidden");
 			$("#modalReservaDuplicate").removeClass("mostrar");
-		}
 
+		}
 		function mostrarModal2(){
 			$("#modalReservaDuplicate").addClass("mostrar");
 			$("#modalReservaDuplicate").removeClass("hidden");
@@ -238,10 +249,15 @@
 			$('#fecha-modal').text(datosForm[0].date);
 			$('#cantidad-modal').text(`${datosForm[0].cantidad} personas`);
 			$('#hora-modal').text((datosForm[0].hora >= "13:00") ? `${datosForm[0].hora} p.m` : `${datosForm[0].hora} a.m`);
-			$('#sede-modal').text((datosForm[0].local == 1 ? "Sede, San isidro" : "Sede, Miraflores"));
+			$('#sede-modal').text((datosForm[0].local == 1 ? "Sede, San isidro" : datosForm[0].local == 2 ? "Sede, Miraflores" : "Sede, San Borja"));
 		}
 
 		function subirScreen(){
+			$('body, html').animate({
+				scrollTop: '150px'
+			}, 300);
+		}
+		function subirScreenCero(){
 			$('body, html').animate({
 				scrollTop: '0px'
 			}, 100);
@@ -256,18 +272,35 @@
 				const day = $('#selectedDay').val();
 				const local = $('#local').val();
 				const nombre = $('#nombre').val();
-				const hora = $('#hora').val();
+				const turno = $('#turno').val();
 				const email = $('#email').val();
 				const cantidad = $('#cantidad').val();
 				const telefono = $('#telefono').val();
 				const comentario = $('#comentario').val();
+				let hora = $('#hora').val();
+				
+				if(turno == 1 ){
+					hora = "12:00"
+				} else {
+					hora = "15:00"
+				}
 
 				if([date, day].includes('')){
 					$('#alert').html('<p class="alert-danger">Debe seleccionar una fecha</p>');
 					$("#alert").fadeOut(4000, function(){
 						$(this).html("");
 						$(this).fadeIn(500);
-					});		
+					});
+					subirScreen();
+					return;
+				}
+				if(telefono.length < 9 ){
+					$('#alert').html('<p class="alert-danger">El número de teléfono debe tener al menos 9 dígitos.</p>');
+					$("#alert").fadeOut(4000, function(){
+						$(this).html("");
+						$(this).fadeIn(500);
+					});
+					subirScreen();
 					return;
 				}
 				if([local, nombre, hora, email, cantidad, telefono].includes('')){
@@ -275,9 +308,11 @@
 					$("#alert").fadeOut(4000, function(){
 						$(this).html("");
 						$(this).fadeIn(500);
-					});		
+					});
+					subirScreen();
 					return;
 				}
+
 				const datos = {
 					id: id,
 					date: date,
@@ -299,21 +334,15 @@
 					// 	mostrarModal2();
 					// } else {
 						// console.log('else');
-						// }
-					viewForm();				
-					mostrarModal();												
-					subirScreen();
-				})
+						// }					
+						// $("#formulario")[0].reset();
+					viewForm();							
+					mostrarModal();
+					subirScreenCero();
+				});
 			});
 
-			$("#local").change(function(){
-				const selectedValue = $(this).val();
-				if(selectedValue =='1'){
-					location.href ="reservar.php";
-				}		
-			});
-
-		});
+		});		
 
 	</script>
 </body>

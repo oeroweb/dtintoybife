@@ -67,7 +67,6 @@ $(document).ready(function(){
 });
 
 $(document).ready(function () {
-
 	var screenWidth = $(window).width();
 
 	if(screenWidth > 680){
@@ -79,7 +78,30 @@ $(document).ready(function () {
     	scrollPollInterval: 0	
 		}
 	}
-});	
+});
+
+
+function validarTelefono(inputTel) {
+  const telefono = inputTel.value;
+
+  const soloNumeros = telefono.replace(/[^0-9]/g, '');
+  inputTel.value = soloNumeros;
+
+  if (soloNumeros.length < 9) {
+    // Mostrar un mensaje de error o realizar alguna acción indicando que faltan dígitos
+    console.error("El número de teléfono debe tener al menos 9 dígitos.");
+    return false; // O podrías devolver true si solo quieres limpiar el input
+  }
+  return true;
+}
+
+const telefonoInput = document.getElementById('telefono');
+
+if (telefonoInput) {
+  telefonoInput.addEventListener('input', function() {
+    validarTelefono(this);
+  });  
+}
 
 
 /**

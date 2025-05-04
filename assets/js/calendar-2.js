@@ -13,7 +13,7 @@ let blockedWeekdays = [];
 
 const getDayWeek = (callback) => {
 	let day = [];
-	$.get("dayWeek-mr.php", function(data){
+	$.get("dayWeek-2.php", function(data){
 		let dayData = JSON.parse(data);
 		day = dayData.data[0]["dia"];
 		callback(day);	
@@ -27,7 +27,7 @@ getDayWeek(function(day){
 
 const getDayBlocked = (callback) => {
 	let daysBlocked = [];
-	$.get("daysBlocked-mr.php", function(data){
+	$.get("daysBlocked-2.php", function(data){
 		let daysData = JSON.parse(data);
 		daysBlocked = daysData.data.map((fecha) => {
 			const partes = fecha.fecha.match(/(\d{4})-(\d{1,2})-(\d{1,2})/);

@@ -92,6 +92,7 @@ function showCalendar(month, year) {
 							console.log(`Seleccionaste el día ${currentDate} de ${monthNames[currentMonth]}, ${currentYear}`);
 							document.getElementById("selectedDate").value = `${currentYear}-${currentMonth + 1}-${currentDate}`
 							document.getElementById("selectedDay").value = `${currentDate}`
+							// dateSelect(currentDate, monthNames[currentMonth]);
 						});
 					})(date, month, year);
 				}
@@ -121,6 +122,28 @@ document.getElementById("prev-month").addEventListener("click", () => {
     }
     showCalendar(currentMonth, currentYear);
 });
+
+// function obtenerHora() {
+// 	var inputHora = document.getElementById("hora");
+// 	var horaSeleccionada = inputHora.value;
+// 	document.getElementById("resultado").innerText = "Hora seleccionada: " + horaSeleccionada;
+// 	dateSelect();
+// }
+
+// function dateSelect(day, month) {
+// 	console.log('resevar', day, month);
+// 	let inputHours = document.getElementById("hora");
+// 	let currentHours = inputHours.value;
+
+// 	console.log('hora', currentHours);
+
+// 	if(day == 14 & month == "Febrero"){
+// 		console.log('ingreso');
+// 		// obtenerHora();
+// 	} else {
+// 		console.log('else');
+// 	}
+// }
 
 document.getElementById("next-month").addEventListener("click", () => {
     if (currentMonth === 11) {

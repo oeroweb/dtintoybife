@@ -15,7 +15,7 @@
         <form action="" method="POST" class="form-reserva" id="formulario">
           <div class="colum-left">
             <div class="calendar-container" id="calendar-container">
-							<input type="hidden" id="id">
+							<input type="hidden" id="id" value="1">
 							<input type="hidden" id="selectedDate">
 							<input type="hidden" id="selectedDay">
               <div class="calendar-header" id="calendar-header" >                
@@ -43,16 +43,16 @@
           <div class="colum-right container-wrap">
             <div class="box-field">
               <select name="local" id="local" placeholder="Local" autofocus="autofocus" required>
-                <option >Local</option>
-                <option value="1">San isidro - Av. Conquiistadores 605</option>
+                <option value="1">San isidro - Av. Conquistadores 605</option>
                 <option value="2">Miraflores - Av. Republica de Panamá 6472</option>
+                <option value="3">San Borja - Av. Aviación 3424</option>
               </select>
             </div>
             <div class="box-field">
               <input type="text" placeholder="Nombre" id="nombre" required>
             </div>
             <div class="box-field">
-              <input type="time" min="09:00" max="23:00" name="hora" id="hora" placeholder="Hora" required>              
+              <input type="time" min="09:00" max="23:00" name="hora" step="900" id="hora" placeholder="Hora" required>
             </div>
             <div class="box-field">
               <input type="email" placeholder="Correo electrónico" id="email" required>
@@ -72,7 +72,7 @@
               </select>
             </div>
             <div class="box-field">
-              <input type="tel" placeholder="Número de contacto" id="telefono" required>
+              <input type="tel" placeholder="Número de contacto" id="telefono" minlength="9" required>
             </div>
 						<p> Para reservas de 10 a más personas, por favor comunícate con nosotros via 
 						<a href="https://api.whatsapp.com/send?phone=51948250458&text=Necesito%20ayuda%20para%20realizar%20una%20reserva%20para%20el%20día%20hoy%20Gracias." target="_blank">Whatsapp.</a></p>
@@ -238,10 +238,15 @@
 			$('#fecha-modal').text(datosForm[0].date);
 			$('#cantidad-modal').text(`${datosForm[0].cantidad} personas`);
 			$('#hora-modal').text((datosForm[0].hora >= "13:00") ? `${datosForm[0].hora} p.m` : `${datosForm[0].hora} a.m`);
-			$('#sede-modal').text((datosForm[0].local == 1 ? "Sede, San isidro" : "Sede, Miraflores"));
+			$('#sede-modal').text((datosForm[0].local == 1 ? "Sede, San isidro" : datosForm[0].local == 2 ? "Sede, Miraflores" : "Sede, San Borja"));
 		}
 
 		function subirScreen(){
+			$('body, html').animate({
+				scrollTop: '150px'
+			}, 100);
+		}
+		function subirScreenCero(){
 			$('body, html').animate({
 				scrollTop: '0px'
 			}, 100);
@@ -262,12 +267,40 @@
 				const telefono = $('#telefono').val();
 				const comentario = $('#comentario').val();
 				
+				
+				if(date == "2025-2-14" & hora > "16:00"){
+					$('#alert').html('<p class="alert-danger">Solo para reservas del día 14 de febrero, serás redirigido a una nueva página para que realices tu reserva nuevamente en los turnos disponibles. Gracias!</p>');					
+					setTimeout(() => {
+						location.href ="reservar-sanvalentin.php";						
+					}, 6000);
+					subirScreen();
+					return;
+				}
+				if(telefono.length < 9 ){
+					$('#alert').html('<p class="alert-danger">El número de teléfono debe tener al menos 9 dígitos.</p>');
+					$("#alert").fadeOut(4000, function(){
+						$(this).html("");
+						$(this).fadeIn(500);
+					});
+					subirScreen();
+					return;
+				}
+				if(date == "2025-5-11"){
+					$('#alert').html('<p class="alert-danger">Solo para reservas del día 11 de mayo, serás redirigido a una nueva página para que realices tu reserva nuevamente en los turnos disponibles. Gracias!</p>');					
+					setTimeout(() => {
+						location.href ="reservar-diaDeLaMadre.php";						
+					}, 6000);
+					subirScreen();
+					return;
+				}
+
 				if([date, day].includes('')){
 					$('#alert').html('<p class="alert-danger">Debe seleccionar una fecha</p>');
 					$("#alert").fadeOut(4000, function(){
 						$(this).html("");
 						$(this).fadeIn(500);
-					});		
+					});
+					subirScreen();
 					return;
 				}
 				if([local, nombre, hora, email, cantidad, telefono].includes('')){
@@ -275,7 +308,8 @@
 					$("#alert").fadeOut(4000, function(){
 						$(this).html("");
 						$(this).fadeIn(500);
-					});		
+					});
+					subirScreen();
 					return;
 				}
 				const datos = {
@@ -303,14 +337,18 @@
 						// $("#formulario")[0].reset();
 					viewForm();							
 					mostrarModal();
-					subirScreen();
+					subirScreenCero();
 				});
 			});
 
 			$("#local").change(function(){
 				const selectedValue = $(this).val();
-				if(selectedValue =='2'){
-					location.href ="reservas.php";
+				if(selectedValue =='1'){
+					location.href ="reservar.php";
+				}	else if(selectedValue =='2'){
+					location.href ="reservar-miraflores.php";
+				}	else {
+					location.href ="reservar-sanborja.php";
 				}				
 			});				
 		});		

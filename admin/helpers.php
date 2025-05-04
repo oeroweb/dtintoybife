@@ -24,6 +24,15 @@
 
 		return $borrado;
 	}
+
+	function formatearFecha($fecha_string, $formato_salida = 'd/m/Y'){
+    $fecha = strtotime($fecha_string);
+
+    if ($fecha === false) {
+        return false;
+    }
+    return date($formato_salida, $fecha);
+	}
 	
 	function obtenerdatos($conexion, $tabla, $sede){
 		$sql = "SELECT * FROM $tabla where sede = $sede";
@@ -65,7 +74,25 @@
 
 	// obtener todos
 	function selectalldatos($conexion, $tabla, $sede, $campo){
-		$sql = "SELECT * FROM $tabla where sede=$sede ORDER by $campo DESC";
+		$sql = "SELECT * FROM $tabla where sede=$sede and fecha >= DATE_SUB(CURDATE(), INTERVAL 2 MONTH) ORDER by $campo DESC";
+
+		$datos = mysqli_query($conexion, $sql);
+		if($datos && mysqli_num_rows($datos) >=1){
+			$resultado = $datos;
+		}else{
+			$resultado = '';
+		}
+		return $resultado;
+	}
+	
+	function selectalldatospagination($conexion, $tabla, $sede, $campo, $inicio, $elementosPorPagina, $buscar){
+		if (!empty($buscar)) {
+			$sql = "SELECT * FROM $tabla where sede=$sede and fecha >= DATE_SUB(CURDATE(), INTERVAL 2 MONTH) and nombre LIKE '%$buscar%' ORDER by $campo DESC LIMIT $inicio, $elementosPorPagina";
+			// $sql = "SELECT * FROM $tabla where sede=$sede and fecha >= DATE_SUB(CURDATE(), INTERVAL 2 MONTH) AND fecha <= CURDATE() and nombre LIKE '%$buscar%' ORDER by $campo DESC LIMIT $inicio, $elementosPorPagina";
+		} else {
+			$sql = "SELECT * FROM $tabla where sede=$sede and fecha >= DATE_SUB(CURDATE(), INTERVAL 2 MONTH) ORDER by $campo DESC LIMIT $inicio, $elementosPorPagina";
+			// $sql = "SELECT * FROM $tabla where sede=$sede and fecha >= DATE_SUB(CURDATE(), INTERVAL 2 MONTH) AND fecha <= CURDATE() ORDER by $campo DESC LIMIT $inicio, $elementosPorPagina";
+		}		
 
 		$datos = mysqli_query($conexion, $sql);
 		if($datos && mysqli_num_rows($datos) >=1){

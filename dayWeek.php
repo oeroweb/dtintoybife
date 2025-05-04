@@ -6,7 +6,7 @@
 
   $db= mysqli_connect(DB_HOST, DB_USER,DB_PASS,DB_NAME);
   
-  $sql = "SELECT dia FROM tabla_descansosemanal where sede = 1;";  
+  $sql = "SELECT dia FROM tabla_descansoSemanal where sede = 1;";  
   $result = mysqli_query($db, $sql);
   
   if(!$result){

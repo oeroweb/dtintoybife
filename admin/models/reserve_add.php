@@ -1,6 +1,6 @@
 <?php 
 
-  if(isset($_POST)){
+  if (isset($_POST)) {
 		session_start();
 		require_once	('../cn/db.php');
 				
@@ -18,7 +18,7 @@
 		
 		$resultado = mysqli_query($db,$sql);
 		
-		if(!mysqli_affected_rows($db)>0){
+		if (!mysqli_affected_rows($db)>0) {
 			echo 'Error';
 			die('Reserva fallida'. mysqli_query($db));
 		} 
@@ -31,7 +31,7 @@
 		// } else {
 		// }
 
-		$body = <<<EOD
+		$body = '  
 		<html>
 			<head>
 				<title>Tenemos nueva reserva</title>
@@ -47,8 +47,7 @@
 					<li>Haz click <a href="https://dtintoybife.com/admin/" style="color:#1c75bc; font-weight: 700;">aquí</a>  para ingresar</li>					
 				</ul>	
 			</body>
-		</html>
-		EOD;
+		</html>';
 
 		function enviarCorreo($para, $asunto, $body) {
 			$headers = "MIME-Version: 1.0" . "\r\n";
@@ -62,12 +61,14 @@
 			}
 		}
 
-		if($local == 1){
-			enviarCorreo('jerek@dtintoybife.com', 'Tenemos nueva reserva', $body);
+		if ($local == 1) {
+			// enviarCorreo('oeroweb@gmail.com', 'Tenemos nueva reserva', $body);
+			// enviarCorreo('jerek@dtintoybife.com', 'Tenemos nueva reserva', $body);
+		} elseif ($local == 2) {
+			// enviarCorreo('oeroweb@gmail.com', 'Tenemos nueva reserva', $body);
+			// enviarCorreo('miraflores@dtintoybife.com', 'Tenemos nueva reserva', $body);
 		} else {
-			enviarCorreo('miraflores@dtintoybife.com', 'Tenemos nueva reserva', $body);
+			// enviarCorreo('oeroweb@gmail.com', 'Tenemos nueva reserva', $body);
+			// enviarCorreo('sanborja@dtintoybife.com', 'Tenemos nueva reserva', $body);
 		}
 	}
-	
-?>
-			
